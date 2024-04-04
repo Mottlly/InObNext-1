@@ -1,4 +1,7 @@
+import Button from "../components/button";
+
 function OpeningCrawl() {
+  const randomArray = ["I", "AM", "BANANA"];
   return (
     //need a parent container/element
     <>
@@ -28,6 +31,9 @@ function OpeningCrawl() {
         <div id="summary">
           <h1> I hope you enjoy the game! </h1>
         </div>
+        {randomArray.map((string, i) => (
+          <Button text={string} key={i} />
+        ))}
       </div>
     </>
   );
