@@ -28,6 +28,16 @@ export default function Home() {
         * {
           box-sizing: border-box;
         }
+        #container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 30px;
+        }
+        #intro {
+          width: 50%;
+          text-align: center;
+        }
       `}</style>
     </div>
   );
