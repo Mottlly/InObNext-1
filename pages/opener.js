@@ -2,7 +2,7 @@ function OpeningCrawl() {
   return (
     //need a parent container/element
     <>
-      <div id="header">
+      <div id="header" class="introcont">
         <h1> Welcome to the not-so-distant future.... </h1>
         <img
           src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/0c7eb6ed-663b-4ce4-bfbd-18239a38ba1b"
@@ -10,7 +10,7 @@ function OpeningCrawl() {
         ></img>
       </div>
 
-      <div id="intro">
+      <div id="intro" class="introcont">
         <h3>
           {" "}
           After the resource wars of the late 21st Century, Earth's nations are
