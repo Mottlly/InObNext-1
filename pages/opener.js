@@ -1,4 +1,5 @@
 import Button from "../components/button";
+import imageButton from "../components/imagebutton";
 
 function OpeningCrawl() {
   const randomArray = ["I", "AM", "BANANA"];
@@ -34,6 +35,7 @@ function OpeningCrawl() {
         {randomArray.map((string, i) => (
           <Button text={string} key={i} />
         ))}
+        <imageButton props="C:\Users\teche\Desktop\Coding\InObNext\nextjs-blog\public\cog.png" />
       </div>
     </>
   );
