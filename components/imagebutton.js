@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function imageButton(props) {
+export default function imageButton(imagesrc) {
   return (
     <button>
-      <img src={props.text} />
+      <img src={imagesrc} />
     </button>
   );
 }
