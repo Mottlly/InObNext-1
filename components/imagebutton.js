@@ -1,9 +1,12 @@
 import React from "react";
+import Image from "next/image";
 
-export default function ImageButton(props) {
+const ImageButton = ({ imageUrl }) => {
   return (
     <button>
-      <img src={props.text} />
+      <Image src={imageUrl} alt="settings cog" width={100} height={100} />
     </button>
   );
-}
+};
+
+export default ImageButton;

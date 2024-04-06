@@ -35,7 +35,7 @@ function OpeningCrawl() {
         {randomArray.map((string, i) => (
           <Button text={string} key={i} />
         ))}
-        <ImageButton text="C:\Users\teche\Desktop\Coding\InObNext\nextjs-blog\public\cog.png" />
+        <ImageButton imageUrl="/cog.png" />
       </div>
     </>
   );
