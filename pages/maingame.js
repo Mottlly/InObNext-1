@@ -44,7 +44,7 @@ export default function Main() {
           display: flex;
           justify-content: flex-start;
           margin: 20px;
-          width: 25vw;
+          width: 30vw;
           height: 10vh;
         }
         #intro {

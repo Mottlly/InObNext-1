@@ -5,7 +5,7 @@ import Link from "next/link";
 const ImageButton = ({ imageUrl, href }) => {
   return (
     <Link href={href}>
-      <div style={{ maxWidth: "100%", height: "auto" }}>
+      <div style={{ maxWidth: "100%", height: "auto", padding: 5 }}>
         <Image
           src={imageUrl}
           alt="Link Icon"
