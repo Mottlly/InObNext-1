@@ -37,6 +37,9 @@ export default function Home() {
           background-color: #242424;
           border: none;
         }
+        .imagebutt:hover {
+          cursor: pointer;
+        }
         #intro {
           width: 50%;
           text-align: center;
