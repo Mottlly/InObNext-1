@@ -11,8 +11,8 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
 
-      <OpeningCrawl />
       <MainMenuButtons />
+      <OpeningCrawl />
 
       <style jsx global>{`
         html,
@@ -44,7 +44,8 @@ export default function Home() {
         }
         .mainbuttons {
           display: flex;
-          justify-content: center;
+          justify-content: flex-start;
+          margin: 20px;
         }
         #intro {
           width: 50%;
