@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ImageButton = ({ imageUrl }) => {
   return (
-    <button>
+    <button className="imagebutt">
       <Image src={imageUrl} alt="settings cog" width={100} height={100} />
     </button>
   );
