@@ -46,6 +46,15 @@ img {
   border:none;
 }
 
+.imagebutt:hover {
+  cursor:pointer;
+}
+
+.mainbuttons {
+  display:flex;
+  justify-content: center;
+}
+
 #intro {
   width:50%;
   text-align:center;

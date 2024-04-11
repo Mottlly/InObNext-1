@@ -2,7 +2,6 @@ import Button from "../components/button";
 import ImageButton from "../components/imagebutton";
 
 function OpeningCrawl() {
-  const imageArray = ["/cog.png", "/burger.png"];
   return (
     //need a parent container/element
     <>
@@ -32,9 +31,6 @@ function OpeningCrawl() {
         <div id="summary">
           <h1> I hope you enjoy the game! </h1>
         </div>
-        {imageArray.map((string, i) => (
-          <ImageButton imageUrl={string} key={i} />
-        ))}
       </div>
     </>
   );

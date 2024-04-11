@@ -1,17 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
-import OpeningCrawl from "./opener";
 import MainMenuButtons from "../components/mainbuttonmenu";
 
-export default function Home() {
+export default function Main() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Main Game Screen</title>
       </Head>
 
-      <OpeningCrawl />
       <MainMenuButtons />
 
       <style jsx global>{`
