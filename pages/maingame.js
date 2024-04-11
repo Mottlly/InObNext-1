@@ -44,6 +44,8 @@ export default function Main() {
           display: flex;
           justify-content: flex-start;
           margin: 20px;
+          width: 25vw;
+          height: 10vh;
         }
         #intro {
           width: 50%;
