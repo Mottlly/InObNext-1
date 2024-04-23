@@ -6,11 +6,8 @@ function MainMenuButtons() {
   return (
     <>
       <div id="mainbuttons" className="mainbuttons">
-        <ImageButton
-          imageUrl="/play.png"
-          href="nextjs-blog/pages/maingame.js"
-        />
-        <ImageButton imageUrl="/burger.png" href="nextjs-blog/pages/index.js" />
+        <ImageButton imageUrl="/play.png" href="/maingame" />
+        <ImageButton imageUrl="/burger.png" href="/homepage" />
         <ImageButton imageUrl="/cog.png" href="nil" />
       </div>
     </>
