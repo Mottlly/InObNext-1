@@ -58,6 +58,14 @@ img {
   height: 10vh;
 }
 
+.textbox {
+  display:flex;
+  justify-content: flex-start;
+  margin: 20px;
+  width: 30vw;
+  height: 10vh;
+}
+
 #intro {
   width:50%;
   text-align:center;
