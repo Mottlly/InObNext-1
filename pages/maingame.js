@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import MainMenuButtons from "../components/mainbuttonmenu";
 import Textbox from "../components/textbox";
+import HealthBar from "../components/healthbar";
 
 export default function Main() {
   return (
@@ -12,9 +13,8 @@ export default function Main() {
       </Head>
 
       <MainMenuButtons />
-      <div>
-        <Textbox text="I Am Here!" />
-      </div>
+      <Textbox text="I Am Here!" />
+      <HealthBar />
 
       <style jsx global>{`
         html,
@@ -73,6 +73,22 @@ export default function Main() {
           margin: 20px;
           width: 30vw;
           height: 10vh;
+        }
+
+        .healthBar {
+          display: flex;
+          align-items: center;
+        }
+
+        .healthSection {
+          width: 20px; /* Adjust width as needed */
+          height: 20px; /* Adjust height as needed */
+          margin-right: 5px;
+          border: 1px solid #000;
+        }
+
+        .active {
+          background-color: white;
         }
 
         #intro {
