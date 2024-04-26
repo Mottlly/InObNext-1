@@ -66,6 +66,22 @@ img {
   height: 10vh;
 }
 
+.healthBar {
+  display: flex;
+  align-items: center;
+}
+
+.healthSection {
+  width: 20px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  margin-right: 5px;
+  border: 1px solid #000;
+}
+
+.active {
+  background-color: white;
+}
+
 #intro {
   width:50%;
   text-align:center;

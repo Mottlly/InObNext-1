@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import MainMenuButtons from "../components/mainbuttonmenu";
 import Textbox from "../components/textbox";
-import HealthBar from "../components/healthbar";
+import TrackContainer from "../components/trackcontainer";
 
 export default function Main() {
   return (
@@ -14,7 +14,7 @@ export default function Main() {
 
       <MainMenuButtons />
       <Textbox text="I Am Here!" />
-      <HealthBar />
+      <TrackContainer />
 
       <style jsx global>{`
         html,
