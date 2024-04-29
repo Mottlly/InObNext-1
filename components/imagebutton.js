@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Styles from "../styles/imagebutton.module.scss";
 
 const ImageButton = ({ imageUrl, href }) => {
   return (
     <Link href={href}>
-      <div style={{ maxWidth: "100%", height: "auto", padding: 5 }}>
+      <div className={Styles.Imagebutt}>
         <Image
           src={imageUrl}
           alt="Link Icon"
