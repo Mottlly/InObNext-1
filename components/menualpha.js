@@ -3,11 +3,11 @@ import MainMenuButtons from "../components/mainbuttonmenu";
 
 function MenuAlpha() {
   return (
-    <>
+    <div>
       <div>
         <MainMenuButtons />
       </div>
-    </>
+    </div>
   );
 }
 
