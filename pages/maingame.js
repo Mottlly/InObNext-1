@@ -4,6 +4,7 @@ import Link from "next/link";
 import MainMenuButtons from "../components/mainbuttonmenu";
 import Textbox from "../components/textbox";
 import TrackContainer from "../components/trackcontainer";
+import DecisionCard from "../components/decisioncard";
 
 export default function Main() {
   return (
@@ -13,7 +14,7 @@ export default function Main() {
       </Head>
 
       <MainMenuButtons />
-      <Textbox text="I Am Here!" />
+      <DecisionCard />
       <TrackContainer />
 
       <style jsx global>{`
