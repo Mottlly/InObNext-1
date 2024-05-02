@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import OpeningCrawl from "./opener";
-import MainMenuButtons from "../components/mainbuttonmenu";
+import MenuAlpha from "../components/menualpha";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
 
-      <MainMenuButtons />
+      <MenuAlpha />
       <OpeningCrawl />
 
       <style jsx global>{`
