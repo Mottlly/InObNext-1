@@ -4,6 +4,14 @@ import styles from "../styles/healthbar.module.scss";
 const HealthBar = () => {
   const [health, setHealth] = useState(10);
 
+  const handleClickUp = () => {
+    setHealth(health + 1);
+  };
+
+  const handleClickDown = () => {
+    setHealth(health - 1);
+  };
+
   return (
     <div className={styles.healthBar}>
       {Array.from({ length: 10 }, (_, index) => (
@@ -14,6 +22,8 @@ const HealthBar = () => {
           }`}
         ></div>
       ))}
+      <button onClick={handleClickUp}>{"Up"}</button>
+      <button onClick={handleClickDown}>{"Down"}</button>
     </div>
   );
 };
