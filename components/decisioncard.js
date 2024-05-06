@@ -12,7 +12,7 @@ export default function DecisionCard() {
       </Head>
       <div id="decisioncardcontainer" className={styles.CardAlpha}>
         <Textbox text="I Am Here!" />
-        <CardImage imageUrl="/play.png" />
+        <CardImage />
       </div>
     </>
   );
