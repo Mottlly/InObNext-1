@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import MenuAlpha from "./MenuAlpha";
+import MenuAlpha from "../MenuAlpha";
 
 test("renders MenuAlpha component", () => {
   expect();
