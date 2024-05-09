@@ -2,7 +2,6 @@ import { useRef, useEffect } from "react";
 import { register } from "swiper/element/bundle";
 
 register();
-console.log("---inuseeffect");
 
 export default function CardImage() {
   const swiperElRef = useRef(null);
