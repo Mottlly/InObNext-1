@@ -65,15 +65,15 @@ export default function Main() {
           justify-content: flex-start;
           margin: 20px;
           width: 30vw;
-          height: 10vh;
+          height: 5vh;
         }
 
         .textbox {
           display: flex;
           justify-content: flex-start;
           margin: 20px;
-          width: 30vw;
-          height: 10vh;
+          width: 90%;
+          height: 5vh;
         }
 
         .healthBar {
