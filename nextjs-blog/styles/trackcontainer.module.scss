@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 75%;
-    margin: 15vw;
-    flex-wrap: wrap;
+    margin-left: 3%;
+    flex-wrap: nowrap;
+    margin-right: 3%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    justify-content: space-around;
 }

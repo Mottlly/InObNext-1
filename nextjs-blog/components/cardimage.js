@@ -5,7 +5,7 @@ import styles from "../styles/swipercontainer.module.scss";
 
 register();
 
-export default function CardImage(imageUrl) {
+export default function CardImage() {
   const swiperElRef = useRef(null);
 
   useEffect(() => {
@@ -30,12 +30,11 @@ export default function CardImage(imageUrl) {
       >
         <swiper-slide>
           <Image
-            src={imageUrl}
+            src="/pixelholder.jpg"
             alt="Link Icon"
             layout="responsive"
             width={100}
             height={100}
-            style={{ width: "100%" }}
           />
         </swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>
