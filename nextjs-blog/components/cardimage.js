@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { register } from "swiper/element/bundle";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styles from "../styles/swipercontainer.module.scss";
 
 register();
@@ -32,10 +32,13 @@ export default function CardImage() {
           <Image
             src="/pixelholder.jpg"
             alt="Link Icon"
-            layout="responsive"
             width={100}
             height={100}
-          />
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>
         <swiper-slide>Slide 3</swiper-slide>
