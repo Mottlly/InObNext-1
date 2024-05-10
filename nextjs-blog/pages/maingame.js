@@ -70,7 +70,7 @@ export default function Main() {
 
         .textbox {
           display: flex;
-          justify-content: flex-start;
+          justify-content: space-around;
           margin: 20px;
           width: 90%;
           height: 5vh;

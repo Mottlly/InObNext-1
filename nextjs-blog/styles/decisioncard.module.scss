@@ -1,8 +1,11 @@
 .CardAlpha {
-    border-width:2px;
+    border-width: 2px;
+    display: flex;
     border-color: white;
     border-style: double;
-    height:50vh;
-    margin-left:3%;
-    margin-right:3%;
+    height: 50vh;
+    margin-left: 3%;
+    margin-right: 3%;
+    flex-direction: column;
+    justify-content: space-between;
 }
