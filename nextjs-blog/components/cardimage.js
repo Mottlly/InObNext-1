@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { register } from "swiper/element/bundle";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "../styles/swipercontainer.module.scss";
 
 register();
