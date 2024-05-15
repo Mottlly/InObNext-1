@@ -5,9 +5,8 @@ import styles from "../styles/swipercontainer.module.scss";
 
 register();
 
-export default function CardImage() {
+export default function CardImage({ imageUrl }) {
   const swiperElRef = useRef(null);
-
   useEffect(() => {
     // listen for Swiper events using addEventListener
     swiperElRef.current.addEventListener("swiperprogress", (e) => {
@@ -30,15 +29,16 @@ export default function CardImage() {
       >
         <swiper-slide>
           <Image
-            src="/pixelholder.jpg"
+            src={imageUrl}
             alt="Link Icon"
             width={100}
             height={100}
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
-            }} />
+              height: "auto",
+            }}
+          />
         </swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>
         <swiper-slide>Slide 3</swiper-slide>
