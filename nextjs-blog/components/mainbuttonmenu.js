@@ -9,6 +9,7 @@ function MainMenuButtons() {
         <ImageButton imageUrl="/play.png" href="/maingame" />
         <ImageButton imageUrl="/burger.png" href="/homepage" />
         <ImageButton imageUrl="/cog.png" href="nil" />
+        <ImageButton imageUrl="/Copyright.png" href="/credits" />
       </div>
     </>
   );

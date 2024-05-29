@@ -15,9 +15,9 @@ const ImageButton = ({ imageUrl, href }) => {
           sizes="100vw"
           style={{
             width: "100%",
-            width: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       </div>
     </Link>
   );
