@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import CreditsContainer from "../components/creditscontainer";
 import MainMenuButtons from "../components/mainbuttonmenu";
-
+/* add object that contains content for the props */
 export default function Credits() {
   return (
     <div>
