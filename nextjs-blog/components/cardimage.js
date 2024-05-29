@@ -1,24 +1,48 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useRef, useEffect } from "react";
+import { register } from "swiper/element/bundle";
+import Image from "next/image";
+import styles from "../styles/swipercontainer.module.scss";
 
-// Import Swiper styles
-import "swiper/css";
+register();
 
-export default function CardImage() {
+export default function CardImage({ imageUrl }) {
+  const swiperElRef = useRef(null);
+  useEffect(() => {
+    // listen for Swiper events using addEventListener
+    swiperElRef.current.addEventListener("swiperprogress", (e) => {
+      const [swiper, progress] = e.detail;
+      console.log(progress);
+    });
+
+    swiperElRef.current.addEventListener("swiperslidechange", (e) => {
+      console.log("slide changed");
+    });
+  }, []);
+
   return (
-    <>
-      <Swiper className="mySwiper">
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-    </>
+    <div id="swipercontainer" className={styles.CardAlpha}>
+      <swiper-container
+        ref={swiperElRef}
+        slides-per-view="1"
+        navigation="true"
+        pagination="true"
+      >
+        <swiper-slide>
+          <Image
+            src={imageUrl}
+            alt="Link Icon"
+            width={100}
+            height={100}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
+        </swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+      </swiper-container>
+    </div>
   );
 }

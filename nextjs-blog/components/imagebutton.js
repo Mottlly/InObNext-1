@@ -10,11 +10,14 @@ const ImageButton = ({ imageUrl, href }) => {
         <Image
           src={imageUrl}
           alt="Link Icon"
-          layout="responsive"
           width={100}
           height={100}
-          style={{ width: "100%" }}
-        />
+          sizes="100vw"
+          style={{
+            width: "100%",
+            width: "100%",
+            height: "auto"
+          }} />
       </div>
     </Link>
   );

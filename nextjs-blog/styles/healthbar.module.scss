@@ -1,13 +1,14 @@
 .healthBar {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-top: 20px;
+  flex-direction: column;
   }
   
   .healthSection {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border: 2px solid white;
     margin: 1.5px;
   }
