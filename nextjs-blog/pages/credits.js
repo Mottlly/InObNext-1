@@ -12,7 +12,9 @@ export default function Credits() {
       </Head>
 
       <MainMenuButtons />
-      <CreditsContainer />
+      <CreditsContainer headertext="Tommy" text="this is Tommy's Bio" />
+      <CreditsContainer headertext="Laura" text="this is Laura's Bio" />
+      <CreditsContainer headertext="Jenna" text="this is Jenna's Bio" />
 
       <style jsx global>{`
         html,
