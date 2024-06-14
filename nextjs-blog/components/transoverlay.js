@@ -18,7 +18,14 @@ const FullscreenOverlay = ({ imageUrl }) => {
 
   return (
     <div>
-      <img src={imageUrl} alt="Open Fullscreen Overlay" onClick={openNav} />
+      <img
+        src={imageUrl}
+        alt="Open Fullscreen Overlay"
+        onClick={openNav}
+        alt="Link Icon"
+        width={100}
+        height={100}
+      />
       {isOpen && (
         <div id="myNav" className={styles.overlay} style={{ width: navWidth }}>
           <a

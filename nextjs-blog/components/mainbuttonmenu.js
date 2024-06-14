@@ -9,8 +9,8 @@ function MainMenuButtons() {
       <div id="mainbuttons" className="mainbuttons">
         <ImageButton imageUrl="/play.png" href="/maingame" />
         <ImageButton imageUrl="/burger.png" href="/homepage" />
-        <FullscreenOverlay imageUrl="/cog.png" />
         <ImageButton imageUrl="/Copyright.png" href="/credits" />
+        <FullscreenOverlay imageUrl="/cog.png" />
       </div>
     </>
   );
