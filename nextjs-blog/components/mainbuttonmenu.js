@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import ImageButton from "./imagebutton";
 import FullscreenOverlay from "../components/transoverlay";
+import SpeedDial from "../components/speeddial";
 
 function MainMenuButtons() {
   return (
@@ -12,6 +13,7 @@ function MainMenuButtons() {
         <ImageButton imageUrl="/Copyright.png" href="/credits" />
         <FullscreenOverlay imageUrl="/cog.png" />
       </div>
+      <SpeedDial />
     </>
   );
 }
