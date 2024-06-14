@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ImageButton from "./imagebutton";
+import FullscreenOverlay from "../components/transoverlay";
 
 function MainMenuButtons() {
   return (
@@ -11,6 +12,7 @@ function MainMenuButtons() {
         <ImageButton imageUrl="/cog.png" href="nil" />
         <ImageButton imageUrl="/Copyright.png" href="/credits" />
       </div>
+      <FullscreenOverlay />
     </>
   );
 }
