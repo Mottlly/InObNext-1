@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/transoverlay.module.scss";
 
-const FullscreenOverlay = () => {
+const FullscreenOverlay = ({ imageUrl }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [navWidth, setNavWidth] = useState("0%");
 
@@ -18,7 +18,7 @@ const FullscreenOverlay = () => {
 
   return (
     <div>
-      <button onClick={openNav}>Open Fullscreen Overlay</button>
+      <img src={imageUrl} alt="Open Fullscreen Overlay" onClick={openNav} />
       {isOpen && (
         <div id="myNav" className={styles.overlay} style={{ width: navWidth }}>
           <a
