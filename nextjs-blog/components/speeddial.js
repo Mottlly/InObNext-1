@@ -9,9 +9,9 @@ import CopyrightIcon from "@mui/icons-material/Copyright";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 
 const actions = [
-  { icon: <PlayArrowIcon />, name: "MainGame" },
-  { icon: <LocalMoviesIcon />, name: "Movie" },
-  { icon: <CopyrightIcon />, name: "Credits" },
+  { icon: <PlayArrowIcon />, name: "MainGame", href: "/maingame" },
+  { icon: <LocalMoviesIcon />, name: "Movie", href: "/homepage" },
+  { icon: <CopyrightIcon />, name: "Credits", href: "/credits" },
   { icon: <SettingsSuggestIcon />, name: "Settings" },
 ];
 
@@ -29,6 +29,7 @@ export default function BasicSpeedDial() {
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
+            href={action.href}
           />
         ))}
       </SpeedDial>
