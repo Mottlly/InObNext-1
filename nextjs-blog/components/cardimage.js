@@ -25,19 +25,17 @@ export default function CardImage({ imageUrl }) {
         ref={swiperElRef}
         slides-per-view="1"
         navigation="true"
+        s
         pagination="true"
       >
         <swiper-slide>
           <Image
             src={imageUrl}
             alt="Link Icon"
+            layout="responsive"
             width={100}
             height={100}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
+            sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33.3vw"
           />
         </swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>
