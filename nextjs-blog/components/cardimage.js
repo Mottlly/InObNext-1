@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { register } from "swiper/element/bundle";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "../styles/swipercontainer.module.scss";
 
 register();
@@ -20,12 +20,11 @@ export default function CardImage({ imageUrl }) {
   }, []);
 
   return (
-    <div id="swipercontainer" className={styles.CardAlpha}>
+    <div id="swipercontainer" className={styles.swipercontainer}>
       <swiper-container
         ref={swiperElRef}
         slides-per-view="1"
         navigation="true"
-        s
         pagination="true"
       >
         <swiper-slide>
@@ -35,7 +34,6 @@ export default function CardImage({ imageUrl }) {
             layout="responsive"
             width={100}
             height={100}
-            sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33.3vw"
           />
         </swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>

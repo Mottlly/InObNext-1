@@ -22,7 +22,6 @@ const FullscreenOverlay = ({ imageUrl }) => {
         src={imageUrl}
         alt="Open Fullscreen Overlay"
         onClick={openNav}
-        alt="Link Icon"
         width={100}
         height={100}
       />
