@@ -14,7 +14,7 @@ const actions = [
   { icon: <LocalMoviesIcon />, name: "Movie", href: "/homepage" },
   { icon: <CopyrightIcon />, name: "Credits", href: "/credits" },
   {
-    icon: <FullscreenOverlay imageUrl="@mui/icons-material/SettingsSuggest" />,
+    icon: <FullscreenOverlay />,
     name: "Settings",
   },
 ];
@@ -44,7 +44,6 @@ export default function BasicSpeedDial() {
           <SpeedDialAction
             key={action.name}
             icon={action.icon}
-            tooltipTitle={action.name}
             href={action.href}
             onClick={action.onClick}
           />

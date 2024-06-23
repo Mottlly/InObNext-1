@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/transoverlay.module.scss";
+import SettingsIcon from "@mui/icons-material/Settings";
 
-const FullscreenOverlay = ({ imageUrl }) => {
+const FullscreenOverlay = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [navWidth, setNavWidth] = useState("0%");
 
@@ -18,13 +19,7 @@ const FullscreenOverlay = ({ imageUrl }) => {
 
   return (
     <div>
-      <img
-        src={imageUrl}
-        alt="Open Fullscreen Overlay"
-        onClick={openNav}
-        width={100}
-        height={100}
-      />
+      <SettingsIcon onClick={openNav} />
       {isOpen && (
         <div id="myNav" className={styles.overlay} style={{ width: navWidth }}>
           <a

@@ -1,7 +1,6 @@
 import { useRef, useEffect } from "react";
 import { register } from "swiper/element/bundle";
 import Image from "next/legacy/image";
-import styles from "../styles/swipercontainer.module.scss";
 
 register();
 
@@ -20,7 +19,7 @@ export default function CardImage({ imageUrl }) {
   }, []);
 
   return (
-    <div id="swipercontainer" className={styles.swipercontainer}>
+    <div id="swipercontainer">
       <swiper-container
         ref={swiperElRef}
         slides-per-view="1"
