@@ -1,9 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
 import CreditsContainer from "../components/creditscontainer";
-import MainMenuButtons from "../components/mainbuttonmenu";
 import FullscreenOverlay from "../components/transoverlay";
+import SpeedDial from "../components/speeddial";
 /* add object that contains content for the props */
 export default function Credits() {
   return (
@@ -12,7 +11,7 @@ export default function Credits() {
         <title>Credits Screen</title>
       </Head>
 
-      <MainMenuButtons />
+      <SpeedDial />
       <CreditsContainer headertext="Tommy" text="this is Tommy's Bio" />
       <CreditsContainer headertext="Laura" text="this is Laura's Bio" />
       <CreditsContainer headertext="Jenna" text="this is Jenna's Bio" />

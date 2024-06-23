@@ -1,8 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
 import OpeningCrawl from "./opener";
-import MenuAlpha from "../components/menualpha";
+import SpeedDial from "../components/speeddial";
 
 export default function Home() {
   return (
@@ -11,7 +10,7 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
 
-      <MenuAlpha />
+      <SpeedDial />
       <OpeningCrawl />
 
       <style jsx global>{`

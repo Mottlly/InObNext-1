@@ -1,10 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
-import MainMenuButtons from "../components/mainbuttonmenu";
-import Textbox from "../components/textbox";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
+import SpeedDial from "../components/speeddial";
 
 export default function Main() {
   return (
@@ -13,7 +11,7 @@ export default function Main() {
         <title>Main Game Screen</title>
       </Head>
 
-      <MainMenuButtons />
+      <SpeedDial />
       <DecisionCard />
       <TrackContainer />
 
