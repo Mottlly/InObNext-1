@@ -1,0 +1,5 @@
+[
+    {"id": 1, "event_name":"steven", "image":"enterlinkhere", "text":"some great text", "healthbars":{"hb1":1, "hb2":0, "hb3":-1, "hb4":-8, "bg":0}, "nextswipe":{"right": "id here", "left": "id here"}},
+    {"id": 2, "event_name":"steven", "image":"enterlinkhere", "text":"some great text", "healthbars":{"hb1":1, "hb2":0, "hb3":-1, "hb4":-8, "bg":0}, "nextswipe":{"right": "id here", "left": "id here"}},
+    {"id": 3, "event_name":"steven", "image":"enterlinkhere", "text":"some great text", "healthbars":{"hb1":1, "hb2":0, "hb3":-1, "hb4":-8, "bg":0}, "nextswipe":{"right": "id here", "left": "id here"}}
+]
