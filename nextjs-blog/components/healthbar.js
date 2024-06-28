@@ -8,7 +8,7 @@ const HealthBar = ({ health }) => {
         <div
           key={index}
           className={`${styles.healthSection} ${
-            index < health ? styles.healthy : ""
+            index >= 10 - health ? styles.healthy : ""
           }`}
         ></div>
       ))}
