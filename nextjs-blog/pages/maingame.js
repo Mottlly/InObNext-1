@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
 
 export default function Main() {
+  const [health, setHealth] = useState(5);
   return (
     <div>
       <Head>
@@ -12,8 +13,8 @@ export default function Main() {
       </Head>
 
       <SpeedDial />
-      <DecisionCard />
-      <TrackContainer />
+      <DecisionCard health={health} setHealth={setHealth} />
+      <TrackContainer health={health} setHealth={setHealth} />
 
       <style jsx global>{`
         html,
