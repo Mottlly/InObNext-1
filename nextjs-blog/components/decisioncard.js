@@ -16,7 +16,11 @@ export default function DecisionCard() {
       </Head>
       <div id="decisioncardcontainer" className={styles.CardAlpha}>
         <TypingTextBox text={text} />
-        <CardImage imageUrl="/pixelholder.jpg" />
+        <CardImage
+          center={dbMocks[1].image}
+          right={dbMocks[2].image}
+          left={dbMocks[0].image}
+        />
       </div>
     </>
   );

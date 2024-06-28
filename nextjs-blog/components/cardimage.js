@@ -4,7 +4,7 @@ import Image from "next/legacy/image";
 
 register();
 
-export default function CardImage({ imageUrl }) {
+export default function CardImage({ left, center, right }) {
   const swiperElRef = useRef(null);
   useEffect(() => {
     // listen for Swiper events using addEventListener
@@ -28,15 +28,33 @@ export default function CardImage({ imageUrl }) {
       >
         <swiper-slide>
           <Image
-            src={imageUrl}
+            src={left}
             alt="Link Icon"
             layout="responsive"
             width={100}
             height={100}
           />
         </swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>
+          {" "}
+          <Image
+            src={center}
+            alt="Link Icon"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+        </swiper-slide>
+        <swiper-slide>
+          {" "}
+          <Image
+            src={right}
+            alt="Link Icon"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+        </swiper-slide>
       </swiper-container>
     </div>
   );
