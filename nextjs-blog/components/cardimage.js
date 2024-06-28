@@ -1,20 +1,18 @@
 import { useRef, useEffect } from "react";
 import { register } from "swiper/element/bundle";
 import Image from "next/legacy/image";
+import dbMocks from "../__mocks__/dbMocks.json";
 
 register();
 
-export default function CardImage({ left, center, right }) {
+export default function CardImage({ left, center, right, health, setHealth }) {
   const swiperElRef = useRef(null);
   useEffect(() => {
-    // listen for Swiper events using addEventListener
-    swiperElRef.current.addEventListener("swiperprogress", (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(progress);
-    });
+    const swiper = swiperElRef.current.swiper;
 
-    swiperElRef.current.addEventListener("swiperslidechange", (e) => {
-      console.log("slide changed");
+    swiper.on("slideChange", () => {
+      setHealth(2);
+      console.log("Health in CardImage:", health);
     });
   }, []);
 

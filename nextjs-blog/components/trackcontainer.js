@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 import HealthBar from "../components/healthbar";
 import styles from "../styles/trackcontainer.module.scss";
 
-export default function TrackContainer() {
-  const [health, setHealth] = useState(5);
+export default function TrackContainer({ health, setHealth }) {
   return (
     <>
       <Head>
