@@ -17,13 +17,9 @@ export default function Main() {
 
       <SpeedDial />
       <DecisionCard
-        healthone={healthone}
         setHealthone={setHealthone}
-        healthtwo={healthtwo}
         setHealthtwo={setHealthtwo}
-        healththree={healththree}
         setHealththree={setHealththree}
-        healthfour={healthfour}
         setHealthfour={setHealthfour}
       />
       <TrackContainer

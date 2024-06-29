@@ -6,13 +6,9 @@ import TypingTextBox from "../components/typingtextbox";
 import dbMocks from "../__mocks__/dbMocks.json";
 
 export default function DecisionCard({
-  healthone,
   setHealthone,
-  healthtwo,
   setHealthtwo,
-  healththree,
   setHealththree,
-  healthfour,
   setHealthfour,
 }) {
   console.log(dbMocks);
