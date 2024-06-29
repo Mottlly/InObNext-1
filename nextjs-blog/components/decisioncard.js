@@ -27,13 +27,9 @@ export default function DecisionCard({
           center={dbMocks[1].image}
           right={dbMocks[2].image}
           left={dbMocks[0].image}
-          healthone={healthone}
           setHealthone={setHealthone}
-          healthtwo={healthtwo}
           setHealthtwo={setHealthtwo}
-          healththree={healththree}
           setHealththree={setHealththree}
-          healthfour={healthfour}
           setHealthfour={setHealthfour}
         />
       </div>
