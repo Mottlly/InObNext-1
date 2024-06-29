@@ -3,8 +3,9 @@ import Head from "next/head";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
-
+//I need to handle the id or index of mockdb here, and pass it down and up just like with health
 export default function Main() {
+  const [currentevent, setCurrentevent] = useState(1);
   const [healthone, setHealthone] = useState(5);
   const [healthtwo, setHealthtwo] = useState(5);
   const [healththree, setHealththree] = useState(5);
@@ -17,6 +18,8 @@ export default function Main() {
 
       <SpeedDial />
       <DecisionCard
+        currentevent={currentevent}
+        setCurrentevent={setCurrentevent}
         setHealthone={setHealthone}
         setHealthtwo={setHealthtwo}
         setHealththree={setHealththree}

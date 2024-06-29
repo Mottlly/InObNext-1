@@ -6,15 +6,15 @@ import dbMocks from "../__mocks__/dbMocks.json";
 register();
 
 export default function CardImage({
-  left,
-  center,
-  right,
+  currentevent,
+  setCurrentevent,
   setHealthone,
   setHealthtwo,
   setHealththree,
   setHealthfour,
 }) {
   const swiperElRef = useRef(null);
+
   useEffect(() => {
     const swiper = swiperElRef.current.swiper;
 
@@ -36,7 +36,7 @@ export default function CardImage({
       >
         <swiper-slide>
           <Image
-            src={left}
+            src={dbMocks[currentevent - 1].image}
             alt="Link Icon"
             layout="responsive"
             width={100}
@@ -46,7 +46,7 @@ export default function CardImage({
         <swiper-slide>
           {" "}
           <Image
-            src={center}
+            src={dbMocks[currentevent].image}
             alt="Link Icon"
             layout="responsive"
             width={100}
@@ -56,7 +56,7 @@ export default function CardImage({
         <swiper-slide>
           {" "}
           <Image
-            src={right}
+            src={dbMocks[currentevent + 1].image}
             alt="Link Icon"
             layout="responsive"
             width={100}
