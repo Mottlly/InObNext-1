@@ -5,7 +5,10 @@ import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
 
 export default function Main() {
-  const [health, setHealth] = useState(5);
+  const [healthone, setHealthone] = useState(5);
+  const [healthtwo, setHealthtwo] = useState(5);
+  const [healththree, setHealththree] = useState(5);
+  const [healthfour, setHealthfour] = useState(5);
   return (
     <div>
       <Head>
@@ -13,8 +16,22 @@ export default function Main() {
       </Head>
 
       <SpeedDial />
-      <DecisionCard health={health} setHealth={setHealth} />
-      <TrackContainer health={health} setHealth={setHealth} />
+      <DecisionCard
+        healthone={healthone}
+        setHealthone={setHealthone}
+        healthtwo={healthtwo}
+        setHealthtwo={setHealthtwo}
+        healththree={healththree}
+        setHealththree={setHealththree}
+        healthfour={healthfour}
+        setHealthfour={setHealthfour}
+      />
+      <TrackContainer
+        healthone={healthone}
+        healthtwo={healthtwo}
+        healththree={healththree}
+        healthfour={healthfour}
+      />
 
       <style jsx global>{`
         html,

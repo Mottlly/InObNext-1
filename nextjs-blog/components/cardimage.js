@@ -5,14 +5,24 @@ import dbMocks from "../__mocks__/dbMocks.json";
 
 register();
 
-export default function CardImage({ left, center, right, health, setHealth }) {
+export default function CardImage({
+  left,
+  center,
+  right,
+  setHealthone,
+  setHealthtwo,
+  setHealththree,
+  setHealthfour,
+}) {
   const swiperElRef = useRef(null);
   useEffect(() => {
     const swiper = swiperElRef.current.swiper;
 
     swiper.on("slideChange", () => {
-      setHealth(2);
-      console.log("Health in CardImage:", health);
+      setHealthone(2);
+      setHealthtwo(4);
+      setHealththree(6);
+      setHealthfour(8);
     });
   }, []);
 

@@ -5,22 +5,36 @@ import CardImage from "../components/cardimage";
 import TypingTextBox from "../components/typingtextbox";
 import dbMocks from "../__mocks__/dbMocks.json";
 
-export default function DecisionCard({ health, setHealth }) {
+export default function DecisionCard({
+  healthone,
+  setHealthone,
+  healthtwo,
+  setHealthtwo,
+  healththree,
+  setHealththree,
+  healthfour,
+  setHealthfour,
+}) {
   console.log(dbMocks);
-  const text = dbMocks[0].text;
   return (
     <>
       <Head>
         <title>Decision Card Container</title>
       </Head>
       <div id="decisioncardcontainer" className={styles.CardAlpha}>
-        <TypingTextBox text={text} />
+        <TypingTextBox text={dbMocks[1].text} />
         <CardImage
           center={dbMocks[1].image}
           right={dbMocks[2].image}
           left={dbMocks[0].image}
-          setHealth={setHealth}
-          health={health}
+          healthone={healthone}
+          setHealthone={setHealthone}
+          healthtwo={healthtwo}
+          setHealthtwo={setHealthtwo}
+          healththree={healththree}
+          setHealththree={setHealththree}
+          healthfour={healthfour}
+          setHealthfour={setHealthfour}
         />
       </div>
     </>
