@@ -21,7 +21,7 @@ export default function DecisionCard({
         <title>Decision Card Container</title>
       </Head>
       <div id="decisioncardcontainer" className={styles.CardAlpha}>
-        <TypingTextBox text={dbMocks[1].text} />
+        <TypingTextBox text={dbMocks[currentevent].text} />
         <CardImage
           currentevent={currentevent}
           setCurrentevent={setCurrentevent}
