@@ -1,26 +1,49 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { register } from "swiper/element/bundle";
-import Image from "next/image";
-import styles from "../styles/swipercontainer.module.scss";
+import Image from "next/legacy/image";
+import dbMocks from "../__mocks__/dbMocks.json";
 
 register();
 
-export default function CardImage({ imageUrl }) {
+export default function CardImage({
+  currentevent,
+  setCurrentevent,
+  setHealthone,
+  setHealthtwo,
+  setHealththree,
+  setHealthfour,
+}) {
   const swiperElRef = useRef(null);
-  useEffect(() => {
-    // listen for Swiper events using addEventListener
-    swiperElRef.current.addEventListener("swiperprogress", (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(progress);
-    });
+  const [swiper, setSwiper] = useState(null);
 
-    swiperElRef.current.addEventListener("swiperslidechange", (e) => {
-      console.log("slide changed");
+  useEffect(() => {
+    const swiper = swiperElRef.current.swiper;
+    setSwiper(swiper);
+
+    swiper.on("slideChange", () => {
+      const activeSlideIndex = swiper.activeIndex;
+      setCurrentevent(activeSlideIndex);
+      setHealthone(
+        (prevHealthone) =>
+          prevHealthone + dbMocks[activeSlideIndex].healthbars.hb1
+      );
+      setHealthtwo(
+        (prevHealthtwo) =>
+          prevHealthtwo + dbMocks[activeSlideIndex].healthbars.hb2
+      );
+      setHealththree(
+        (prevHealththree) =>
+          prevHealththree + dbMocks[activeSlideIndex].healthbars.hb3
+      );
+      setHealthfour(
+        (prevHealthfour) =>
+          prevHealthfour + dbMocks[activeSlideIndex].healthbars.hb4
+      );
     });
   }, []);
 
   return (
-    <div id="swipercontainer" className={styles.CardAlpha}>
+    <div id="swipercontainer">
       <swiper-container
         ref={swiperElRef}
         slides-per-view="1"
@@ -29,19 +52,34 @@ export default function CardImage({ imageUrl }) {
       >
         <swiper-slide>
           <Image
-            src={imageUrl}
+            src={dbMocks[currentevent].image}
             alt="Link Icon"
+            layout="responsive"
             width={100}
             height={100}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
           />
         </swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>
+          {" "}
+          <Image
+            id="currenteventimage"
+            src={dbMocks[currentevent].image}
+            alt="Link Icon"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+        </swiper-slide>
+        <swiper-slide>
+          {" "}
+          <Image
+            src={dbMocks[currentevent].image}
+            alt="Link Icon"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+        </swiper-slide>
       </swiper-container>
     </div>
   );

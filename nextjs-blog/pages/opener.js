@@ -1,6 +1,3 @@
-import Button from "../components/button";
-import ImageButton from "../components/imagebutton";
-
 function OpeningCrawl() {
   return (
     //need a parent container/element

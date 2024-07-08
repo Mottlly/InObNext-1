@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import styles from "../styles/healthbar.module.scss";
 
-const HealthBar = () => {
-  const [health, setHealth] = useState(10);
-
-  const handleClickUp = () => {
-    setHealth(health + 1);
-  };
-
-  const handleClickDown = () => {
-    setHealth(health - 1);
-  };
+const HealthBar = ({ health }) => {
+  useEffect(() => {
+    // This will log whenever the health prop changes
+    console.log("Health changed to:", health);
+  }, [health]);
 
   return (
     <div className={styles.healthBar}>
@@ -18,12 +13,10 @@ const HealthBar = () => {
         <div
           key={index}
           className={`${styles.healthSection} ${
-            index < health ? styles.healthy : ""
+            index >= 10 - health ? styles.healthy : ""
           }`}
         ></div>
       ))}
-      <button onClick={handleClickUp}>{"Up"}</button>
-      <button onClick={handleClickDown}>{"Down"}</button>
     </div>
   );
 };

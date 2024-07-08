@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
-import MainMenuButtons from "../components/mainbuttonmenu";
-import Textbox from "../components/textbox";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
-
+import SpeedDial from "../components/speeddial";
+//I need to handle the id or index of mockdb here, and pass it down and up just like with health
 export default function Main() {
+  const [currentevent, setCurrentevent] = useState(0);
+  const [healthone, setHealthone] = useState(5);
+  const [healthtwo, setHealthtwo] = useState(5);
+  const [healththree, setHealththree] = useState(5);
+  const [healthfour, setHealthfour] = useState(5);
   return (
     <div>
       <Head>
         <title>Main Game Screen</title>
       </Head>
 
-      <MainMenuButtons />
-      <DecisionCard />
-      <TrackContainer />
+      <SpeedDial />
+      <DecisionCard
+        currentevent={currentevent}
+        setCurrentevent={setCurrentevent}
+        setHealthone={setHealthone}
+        setHealthtwo={setHealthtwo}
+        setHealththree={setHealththree}
+        setHealthfour={setHealthfour}
+      />
+      <TrackContainer
+        healthone={healthone}
+        healthtwo={healthtwo}
+        healththree={healththree}
+        healthfour={healthfour}
+      />
 
       <style jsx global>{`
         html,
