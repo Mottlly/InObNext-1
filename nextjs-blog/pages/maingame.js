@@ -5,11 +5,11 @@ import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
 //I need to handle the id or index of mockdb here, and pass it down and up just like with health
 export default function Main() {
-  const [currentevent, setCurrentevent] = useState(0);
-  const [healthone, setHealthone] = useState(5);
-  const [healthtwo, setHealthtwo] = useState(5);
-  const [healththree, setHealththree] = useState(5);
-  const [healthfour, setHealthfour] = useState(5);
+  const [currentEvent, setCurrentEvent] = useState(0);
+  const [healthOne, setHealthOne] = useState(5);
+  const [healthTwo, setHealthTwo] = useState(5);
+  const [healthThree, setHealthThree] = useState(5);
+  const [healthFour, setHealthFour] = useState(5);
   return (
     <div>
       <Head>
@@ -18,18 +18,18 @@ export default function Main() {
 
       <SpeedDial />
       <DecisionCard
-        currentevent={currentevent}
-        setCurrentevent={setCurrentevent}
-        setHealthone={setHealthone}
-        setHealthtwo={setHealthtwo}
-        setHealththree={setHealththree}
-        setHealthfour={setHealthfour}
+        currentEvent={currentEvent}
+        setCurrentEvent={setCurrentEvent}
+        setHealthOne={setHealthOne}
+        setHealthTwo={setHealthTwo}
+        setHealthThree={setHealthThree}
+        setHealthFour={setHealthFour}
       />
       <TrackContainer
-        healthone={healthone}
-        healthtwo={healthtwo}
-        healththree={healththree}
-        healthfour={healthfour}
+        healthOne={healthOne}
+        healthTwo={healthTwo}
+        healthThree={healthThree}
+        healthFour={healthFour}
       />
 
       <style jsx global>{`

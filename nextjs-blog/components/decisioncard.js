@@ -6,29 +6,27 @@ import TypingTextBox from "../components/typingtextbox";
 import dbMocks from "../__mocks__/dbMocks.json";
 
 export default function DecisionCard({
-  currentevent,
-  setCurrentevent,
-  setHealthone,
-  setHealthtwo,
-  setHealththree,
-  setHealthfour,
+  currentEvent,
+  setCurrentEvent,
+  setHealthOne,
+  setHealthTwo,
+  setHealthThree,
+  setHealthFour,
 }) {
-  console.log(dbMocks);
-  console.log(currentevent);
   return (
     <>
       <Head>
         <title>Decision Card Container</title>
       </Head>
       <div id="decisioncardcontainer" className={styles.CardAlpha}>
-        <TypingTextBox text={dbMocks[currentevent].text} />
+        <TypingTextBox text={dbMocks[currentEvent].text} />
         <CardImage
-          currentevent={currentevent}
-          setCurrentevent={setCurrentevent}
-          setHealthone={setHealthone}
-          setHealthtwo={setHealthtwo}
-          setHealththree={setHealththree}
-          setHealthfour={setHealthfour}
+          currentEvent={currentEvent}
+          setCurrentEvent={setCurrentEvent}
+          setHealthOne={setHealthOne}
+          setHealthTwo={setHealthTwo}
+          setHealthThree={setHealthThree}
+          setHealthFour={setHealthFour}
         />
       </div>
     </>
