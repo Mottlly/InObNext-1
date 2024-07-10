@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     max-width: 768px;
+    overflow: hidden;
 
     @media (max-width: 768px) {
         height: auto;
