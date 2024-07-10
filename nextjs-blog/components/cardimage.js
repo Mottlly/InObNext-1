@@ -44,12 +44,7 @@ export default function CardImage({
 
   return (
     <div id="swipercontainer">
-      <swiper-container
-        ref={swiperElRef}
-        slides-per-view="1"
-        navigation="true"
-        pagination="true"
-      >
+      <swiper-container ref={swiperElRef} slides-per-view="1">
         <swiper-slide>
           <Image
             src={dbMocks[currentEvent].image}
