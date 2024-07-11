@@ -1,5 +1,5 @@
 [
-    {"id": 0, "event_name":"steven", "image":"/pixelholder.jpg", "text":"some great text", "healthbars":{"hb1":2, "hb2":2, "hb3":2, "hb4":2, "bg":0}, "nextswipe":{"right": 1, "left": 0}},
-    {"id": 1, "event_name":"steven", "image":"/pixelholder.jpg", "text":"some great text", "healthbars":{"hb1":1, "hb2":1, "hb3":-1, "hb4":-1, "bg":0}, "nextswipe":{"right": 1, "left": -1}},
-    {"id": 2, "event_name":"steven", "image":"/pixelholder.jpg", "text":"some great text", "healthbars":{"hb1":-1, "hb2":-1, "hb3":1, "hb4":1, "bg":0}, "nextswipe":{"right": 1, "left": -1}}
+    {"id": 0, "event_name":"steven", "image":"/pixelholder.jpg", "text":"I've seen things you people wouldn't believe...", "healthbars":{"hb1":2, "hb2":2, "hb3":2, "hb4":2, "bg":0}, "nextswipe":{"right": 1, "left": 0}},
+    {"id": 1, "event_name":"steven", "image":"/pixelholder.jpg", "text":"Attack ships on fire off the shoulder of Orion...", "healthbars":{"hb1":1, "hb2":1, "hb3":-1, "hb4":-1, "bg":0}, "nextswipe":{"right": 1, "left": -1}},
+    {"id": 2, "event_name":"steven", "image":"/pixelholder.jpg", "text":"I watched C-beams glitter in the dark near the Tannhäuser Gate.", "healthbars":{"hb1":-1, "hb2":-1, "hb3":1, "hb4":1, "bg":0}, "nextswipe":{"right": 1, "left": -1}}
 ]
