@@ -2,17 +2,15 @@ import * as React from "react";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import FullscreenOverlay from "../components/transoverlay";
-import SpeedDial from "@mui/material/SpeedDial";
-import SpeedDialIcon from "@mui/material/SpeedDialIcon";
-import SpeedDialAction from "@mui/material/SpeedDialAction";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import CopyrightIcon from "@mui/icons-material/Copyright";
-import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
+import { SpeedDial, SpeedDialIcon, SpeedDialAction } from "@mui/material";
+import PlayArrow from "@mui/icons-material/PlayArrow";
+import Copyright from "@mui/icons-material/Copyright";
+import LocalMovies from "@mui/icons-material/LocalMovies";
 
 const actions = [
-  { icon: <PlayArrowIcon />, name: "MainGame", href: "/maingame" },
-  { icon: <LocalMoviesIcon />, name: "Movie", href: "/homepage" },
-  { icon: <CopyrightIcon />, name: "Credits", href: "/credits" },
+  { icon: <PlayArrow />, name: "MainGame", href: "/maingame" },
+  { icon: <LocalMovies />, name: "Movie", href: "/homepage" },
+  { icon: <Copyright />, name: "Credits", href: "/credits" },
   {
     icon: <FullscreenOverlay />,
     name: "Settings",
@@ -52,3 +50,5 @@ export default function BasicSpeedDial() {
     </Box>
   );
 }
+
+//import { LocalMovies as BananaIcon, Copyright as CopyrightIcon } from "@mui/icons-material/Copyright"

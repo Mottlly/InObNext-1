@@ -4,10 +4,10 @@ import HealthBar from "../components/healthbar";
 import styles from "../styles/trackcontainer.module.scss";
 
 export default function TrackContainer({
-  healthone,
-  healthtwo,
-  healththree,
-  healthfour,
+  healthOne,
+  healthTwo,
+  healthThree,
+  healthFour,
 }) {
   return (
     <>
@@ -15,10 +15,10 @@ export default function TrackContainer({
         <title>Health Bar Tracker</title>
       </Head>
       <div id="trackcontaineractual" className={styles.healthcontainer}>
-        <HealthBar health={healthone} />
-        <HealthBar health={healthtwo} />
-        <HealthBar health={healththree} />
-        <HealthBar health={healthfour} />
+        <HealthBar health={healthOne} />
+        <HealthBar health={healthTwo} />
+        <HealthBar health={healthThree} />
+        <HealthBar health={healthFour} />
       </div>
     </>
   );

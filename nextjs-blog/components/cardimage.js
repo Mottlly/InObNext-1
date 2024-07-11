@@ -6,12 +6,12 @@ import dbMocks from "../__mocks__/dbMocks.json";
 register();
 
 export default function CardImage({
-  currentevent,
-  setCurrentevent,
-  setHealthone,
-  setHealthtwo,
-  setHealththree,
-  setHealthfour,
+  currentEvent,
+  setCurrentEvent,
+  setHealthOne,
+  setHealthTwo,
+  setHealthThree,
+  setHealthFour,
 }) {
   const swiperElRef = useRef(null);
   const [swiper, setSwiper] = useState(null);
@@ -22,37 +22,32 @@ export default function CardImage({
 
     swiper.on("slideChange", () => {
       const activeSlideIndex = swiper.activeIndex;
-      setCurrentevent(activeSlideIndex);
-      setHealthone(
-        (prevHealthone) =>
-          prevHealthone + dbMocks[activeSlideIndex].healthbars.hb1
+      setCurrentEvent(activeSlideIndex);
+      setHealthOne(
+        (prevHealthOne) =>
+          prevHealthOne + dbMocks[activeSlideIndex].healthbars.hb1
       );
-      setHealthtwo(
-        (prevHealthtwo) =>
-          prevHealthtwo + dbMocks[activeSlideIndex].healthbars.hb2
+      setHealthTwo(
+        (prevHealthTwo) =>
+          prevHealthTwo + dbMocks[activeSlideIndex].healthbars.hb2
       );
-      setHealththree(
-        (prevHealththree) =>
-          prevHealththree + dbMocks[activeSlideIndex].healthbars.hb3
+      setHealthThree(
+        (prevHealthThree) =>
+          prevHealthThree + dbMocks[activeSlideIndex].healthbars.hb3
       );
-      setHealthfour(
-        (prevHealthfour) =>
-          prevHealthfour + dbMocks[activeSlideIndex].healthbars.hb4
+      setHealthFour(
+        (prevHealthFour) =>
+          prevHealthFour + dbMocks[activeSlideIndex].healthbars.hb4
       );
     });
   }, []);
 
   return (
     <div id="swipercontainer">
-      <swiper-container
-        ref={swiperElRef}
-        slides-per-view="1"
-        navigation="true"
-        pagination="true"
-      >
+      <swiper-container ref={swiperElRef} slides-per-view="1">
         <swiper-slide>
           <Image
-            src={dbMocks[currentevent].image}
+            src={dbMocks[currentEvent].image}
             alt="Link Icon"
             layout="responsive"
             width={100}
@@ -63,7 +58,7 @@ export default function CardImage({
           {" "}
           <Image
             id="currenteventimage"
-            src={dbMocks[currentevent].image}
+            src={dbMocks[currentEvent].image}
             alt="Link Icon"
             layout="responsive"
             width={100}
@@ -73,7 +68,7 @@ export default function CardImage({
         <swiper-slide>
           {" "}
           <Image
-            src={dbMocks[currentevent].image}
+            src={dbMocks[currentEvent].image}
             alt="Link Icon"
             layout="responsive"
             width={100}
