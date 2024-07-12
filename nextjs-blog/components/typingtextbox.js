@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "../styles/typingtext.module.scss";
 
 const TypingText = ({ text, speed = 65 }) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -17,7 +18,7 @@ const TypingText = ({ text, speed = 65 }) => {
     return () => clearInterval(intervalId);
   }, [text, speed]);
 
-  return <span className="textbox">{displayedText}</span>;
+  return <span className={styles.textbox}>{displayedText}</span>;
 };
 
 export default TypingText;
