@@ -3,16 +3,13 @@
     display: flex;
     border-color: white;
     border-style: double;
-    height: 50vh;
     margin-left: auto;
     margin-right: auto;
     flex-direction: column;
-    justify-content: space-between;
     max-width: 768px;
     overflow: hidden;
 
     @media (max-width: 768px) {
-        height: auto;
         margin-left: 2%; 
         margin-right: 2%; 
     }
