@@ -38,11 +38,10 @@ export default function FormDialog() {
           },
         }}
       >
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Log-In</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
+            To pick up where you left off, please log in here.
           </DialogContentText>
           <TextField
             autoFocus
@@ -51,6 +50,17 @@ export default function FormDialog() {
             id="name"
             name="email"
             label="Email Address"
+            type="email"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="password"
+            name="pass"
+            label="Password"
             type="email"
             fullWidth
             variant="standard"
