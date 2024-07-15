@@ -9,6 +9,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -16,6 +19,35 @@ export default function FormDialog() {
 
   const handleClose = () => {
     setOpen(false);
+    setEmail("");
+    setPassword("");
+    setError("");
+  };
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Logged in user:", data.user);
+        handleClose(); // Close dialog on successful login
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message || "Login failed");
+      }
+    } catch (error) {
+      console.error("Error during login:", error.message);
+      setError("Login failed");
+    }
   };
 
   return (
@@ -28,14 +60,7 @@ export default function FormDialog() {
         onClose={handleClose}
         PaperProps={{
           component: "form",
-          onSubmit: (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            const email = formJson.email;
-            console.log(email);
-            handleClose();
-          },
+          onSubmit: handleLogin,
         }}
       >
         <DialogTitle>Log-In</DialogTitle>
@@ -47,23 +72,30 @@ export default function FormDialog() {
             autoFocus
             required
             margin="dense"
-            id="name"
+            id="email"
             name="email"
             label="Email Address"
             type="email"
             fullWidth
             variant="standard"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            error={!!error}
+            helperText={error}
           />
           <TextField
-            autoFocus
             required
             margin="dense"
             id="password"
-            name="pass"
+            name="password"
             label="Password"
             type="password"
             fullWidth
             variant="standard"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            error={!!error}
+            helperText={error}
           />
         </DialogContent>
         <DialogActions>
