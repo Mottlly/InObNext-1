@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import OpeningCrawl from "./opener";
 import SpeedDial from "../components/speeddial";
+import FormDialog from "../components/loginpop";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
 
       <SpeedDial />
       <OpeningCrawl />
+      <FormDialog />
 
       <style jsx global>{`
         html,
