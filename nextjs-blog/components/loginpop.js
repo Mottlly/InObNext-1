@@ -61,14 +61,15 @@ export default function FormDialog() {
             id="password"
             name="pass"
             label="Password"
-            type="email"
+            type="password"
             fullWidth
             variant="standard"
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit">Subscribe</Button>
+          <Button type="submit">Log In</Button>
+          <Button type="submit">Forgot Password</Button>
+          <Button onClick={handleClose}>Continue As Guest</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
