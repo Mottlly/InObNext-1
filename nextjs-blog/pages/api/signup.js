@@ -29,16 +29,12 @@ export default async function handler(req, res) {
     };
 
     // Insert the new user into the database
-    const result = await collection.insertOne(newUser);
+    await collection.insertOne(newUser);
 
-    if (result.insertedCount === 1) {
-      res.status(201).json({ message: "User created successfully" });
-    } else {
-      res.status(500).json({ message: "Failed to create user" });
-    }
+    res.status(201).json({ message: "User created successfully" });
   } catch (error) {
     console.error("Error creating user:", error);
-    res.status(500).json({ message: "Something went wrong!" });
+    res.status(500).json({ message: "Failed to create user" });
   } finally {
     await client.close();
   }

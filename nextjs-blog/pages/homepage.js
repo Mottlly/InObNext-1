@@ -3,6 +3,7 @@ import Head from "next/head";
 import OpeningCrawl from "./opener";
 import SpeedDial from "../components/speeddial";
 import FormDialog from "../components/loginpop";
+import CreateAccount from "../components/createuser";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <SpeedDial />
       <OpeningCrawl />
       <FormDialog />
+      <CreateAccount />
 
       <style jsx global>{`
         html,
