@@ -24,9 +24,7 @@ export default async function handler(req, res) {
     // Choose a name for your collection
     const collection = database.collection("Users");
 
-    // Example: Find a user by email and password
-    console.log("email:", email);
-    console.log("password:", password);
+    //Find a user by email and password
     const user = await collection.findOne({
       email: email,
       password: password,
