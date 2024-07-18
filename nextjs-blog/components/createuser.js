@@ -7,8 +7,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-export default function FormDialog() {
-  const [open, setOpen] = React.useState(true);
+export default function CreateAccount() {
+  const [open, setOpen] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState("");
@@ -24,11 +24,12 @@ export default function FormDialog() {
     setError("");
   };
 
-  const handleLogin = async (event) => {
+  const handleCreateAccount = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/signup", {
+        // Remember to create adjusted endpoint for account creation //
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,15 +39,15 @@ export default function FormDialog() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Logged in user:", data.user);
-        handleClose(); // Close dialog on successful login
+        console.log("Created account for user:", data.user);
+        handleClose(); // Close dialog on successful account creation
       } else {
         const errorData = await response.json();
-        setError(errorData.message || "Login failed");
+        setError(errorData.message || "Account creation failed");
       }
     } catch (error) {
-      console.error("Error during login:", error.message);
-      setError("Login failed");
+      console.error("Error during account creation:", error.message);
+      setError("Account creation failed");
     }
   };
 
@@ -60,13 +61,13 @@ export default function FormDialog() {
         onClose={handleClose}
         PaperProps={{
           component: "form",
-          onSubmit: handleLogin,
+          onSubmit: handleCreateAccount,
         }}
       >
-        <DialogTitle>Log-In</DialogTitle>
+        <DialogTitle>Create Account</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To pick up where you left off, please log in here.
+            To create an account, please fill in your details here.
           </DialogContentText>
           <TextField
             autoFocus
@@ -99,9 +100,8 @@ export default function FormDialog() {
           />
         </DialogContent>
         <DialogActions>
-          <Button type="submit">Log In</Button>
-          <Button type="submit">Forgot Password</Button>
-          <Button onClick={handleClose}>Continue As Guest</Button>
+          <Button type="submit">Create Account</Button>
+          <Button onClick={handleClose}>Cancel</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

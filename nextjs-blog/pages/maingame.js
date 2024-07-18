@@ -3,6 +3,7 @@ import Head from "next/head";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
+
 //I need to handle the id or index of mockdb here, and pass it down and up just like with health
 export default function Main() {
   const [currentEvent, setCurrentEvent] = useState(0);
