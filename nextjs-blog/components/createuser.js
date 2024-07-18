@@ -53,9 +53,7 @@ export default function CreateAccount() {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
+      <Button onClick={handleClickOpen}>Open form dialog</Button>
       <Dialog
         open={open}
         onClose={handleClose}

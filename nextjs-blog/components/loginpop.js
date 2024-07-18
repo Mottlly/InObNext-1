@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "../styles/popup.module.scss";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -6,6 +7,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import CreateAccount from "../components/createuser";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(true);
@@ -102,6 +104,14 @@ export default function FormDialog() {
           <Button type="submit">Log In</Button>
           <Button type="submit">Forgot Password</Button>
           <Button onClick={handleClose}>Continue As Guest</Button>
+        </DialogActions>
+        <DialogContent>
+          <DialogContentText>
+            Don't have an account? Create one below!
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions className={styles.popupbuttons}>
+          <CreateAccount />
         </DialogActions>
       </Dialog>
     </React.Fragment>
