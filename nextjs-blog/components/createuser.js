@@ -11,6 +11,7 @@ export default function CreateAccount() {
   const [open, setOpen] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [passwordConfirm, setPasswordConfirm] = React.useState("");
   const [error, setError] = React.useState("");
 
   const handleClickOpen = () => {
@@ -34,7 +35,7 @@ export default function CreateAccount() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, passwordConfirm }),
       });
 
       if (response.ok) {
@@ -53,7 +54,7 @@ export default function CreateAccount() {
 
   return (
     <React.Fragment>
-      <Button onClick={handleClickOpen}>Open form dialog</Button>
+      <Button onClick={handleClickOpen}>Create Account</Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -93,6 +94,20 @@ export default function CreateAccount() {
             variant="standard"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={!!error}
+            helperText={error}
+          />
+          <TextField
+            required
+            margin="dense"
+            id="passwordconfirm"
+            name="passwordconfirm"
+            label="Passwordconfirm"
+            type="passwordconfirm"
+            fullWidth
+            variant="standard"
+            value={passwordConfirm}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
             error={!!error}
             helperText={error}
           />

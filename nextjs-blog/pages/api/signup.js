@@ -5,7 +5,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  const { email, password } = req.body;
+  // Destructure email, password, and passwordConfirm from req.body
+  const { email, password, passwordConfirm } = req.body;
+
+  // Check if password and passwordConfirm match
+  if (password !== passwordConfirm) {
+    return res.status(400).json({ message: "Passwords do not match" });
+  }
 
   const client = new MongoClient(process.env.MONGODB_URI);
 
