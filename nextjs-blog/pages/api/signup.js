@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -28,10 +29,13 @@ export default async function handler(req, res) {
       return res.status(409).json({ message: "User already exists" });
     }
 
+    // Hash the password using bcrypt
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     // Create a new user document
     const newUser = {
       email: email,
-      password: password,
+      password: hashedPassword,
     };
 
     // Insert the new user into the database

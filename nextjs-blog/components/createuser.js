@@ -35,7 +35,11 @@ export default function CreateAccount() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password, passwordConfirm }),
+        body: JSON.stringify({
+          email,
+          password,
+          passwordConfirm,
+        }),
       });
 
       if (response.ok) {
@@ -100,10 +104,10 @@ export default function CreateAccount() {
           <TextField
             required
             margin="dense"
-            id="passwordconfirm"
-            name="passwordconfirm"
-            label="Passwordconfirm"
-            type="passwordconfirm"
+            id="confirmPassword"
+            name="password"
+            label="Confirm Password"
+            type="password"
             fullWidth
             variant="standard"
             value={passwordConfirm}
