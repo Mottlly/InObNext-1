@@ -4,7 +4,8 @@
 
 // pages/api/login.js
 
-//current mock login: 1example@example.com - steven
+// TODO consider combining login and signup //
+
 import { MongoClient } from "mongodb";
 import bcrypt from "bcrypt";
 
