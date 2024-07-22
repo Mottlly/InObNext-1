@@ -1,15 +1,18 @@
-const express = require("express");
-const router = express.Router();
-const nodemailer = require("nodemailer");
-const crypto = require("crypto");
-const { MongoClient } = require("mongodb");
+import nodemailer from "nodemailer";
+import crypto from "crypto";
+import { MongoClient } from "mongodb";
 
 // MongoDB connection URI
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
-// Endpoint to handle password reset request
-router.post("/resetPasswordRequest", async (req, res) => {
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res
+      .status(405)
+      .json({ error: "Method Not Allowed", allowedMethods: ["POST"] });
+  }
+
   const { email } = req.body;
 
   try {
@@ -42,7 +45,7 @@ router.post("/resetPasswordRequest", async (req, res) => {
       service: "Gmail", // e.g., Gmail, Yahoo, etc.
       auth: {
         user: "inobscurumgame@gmail.com",
-        pass: "1GreatGame!",
+        pass: "ilqccfydxdhanyso",
       },
     });
 
@@ -72,6 +75,4 @@ router.post("/resetPasswordRequest", async (req, res) => {
     // Close the MongoDB connection
     await client.close();
   }
-});
-
-module.exports = router;
+}

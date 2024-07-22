@@ -8,6 +8,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import CreateAccount from "../components/createuser";
+import ResetPasswordRequest from "../components/passwordResetRequestPop";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(true);
@@ -102,7 +103,7 @@ export default function FormDialog() {
         </DialogContent>
         <DialogActions>
           <Button type="submit">Log In</Button>
-          <Button type="submit">Forgot Password</Button>
+          <ResetPasswordRequest />
           <Button onClick={handleClose}>Continue As Guest</Button>
         </DialogActions>
         <DialogContent>
