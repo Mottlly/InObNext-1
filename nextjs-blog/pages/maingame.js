@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
@@ -11,6 +11,18 @@ export default function Main() {
   const [healthTwo, setHealthTwo] = useState(5);
   const [healthThree, setHealthThree] = useState(5);
   const [healthFour, setHealthFour] = useState(5);
+
+  useEffect(() => {
+    // Check if token exists in localStorage
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      console.log("Token is invalid");
+    } else {
+      console.log("Token is valid");
+    }
+  }, []); // Empty dependency array ensures this runs once on component mount
+
   return (
     <div>
       <Head>
