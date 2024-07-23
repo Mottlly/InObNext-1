@@ -43,6 +43,7 @@ export default function FormDialog() {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
+        localStorage.setItem("token", data.token);
         setUser(data); // Set user information to state
         console.log("Logged in user:", data.user);
       } else {

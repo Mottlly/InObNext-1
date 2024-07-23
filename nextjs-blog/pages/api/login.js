@@ -8,6 +8,7 @@
 
 import { MongoClient } from "mongodb";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -33,12 +34,22 @@ export default async function handler(req, res) {
       const passwordMatch = await bcrypt.compare(password, user.password);
 
       if (passwordMatch) {
-        res
-          .status(200)
-          .json({
-            message: "Authorized",
-            user: { id: user._id, email: user.email, progress: user.progress },
-          });
+        const token = jwt.sign(
+          {
+            userId: user._id,
+            email: user.email,
+            password: user.password,
+          },
+          process.env.JWT_SECRET, // Use a secure secret key stored in environment variable
+          {
+            expiresIn: "1h", // Token expires in 1 hour (adjust as needed)
+          }
+        );
+        res.status(200).json({
+          message: "Authorized",
+          token: token,
+          user: { id: user._id, email: user.email, progress: user.progress },
+        });
       } else {
         res.status(401).json({ message: "Unauthorized" });
       }
