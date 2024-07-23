@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       service: "Gmail", // e.g., Gmail, Yahoo, etc.
       auth: {
         user: "inobscurumgame@gmail.com",
-        pass: "ilqccfydxdhanyso",
+        pass: "rzxytysomhbcdtsn",
       },
     });
 
@@ -56,7 +56,7 @@ export default async function handler(req, res) {
       text:
         `You are receiving this email because you (or someone else) have requested the reset of the password for your account.\n\n` +
         `Please click on the following link, or paste this into your browser to complete the process:\n\n` +
-        `http://${req.headers.host}/reset-password?token=${token}\n\n` +
+        `${req.headers.host}/reset-password?token=${token}\n\n` +
         `If you did not request this, please ignore this email and your password will remain unchanged.\n`,
     };
 
