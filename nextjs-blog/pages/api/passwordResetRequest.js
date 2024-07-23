@@ -18,8 +18,8 @@ export default async function handler(req, res) {
   try {
     // Connect to MongoDB
     await client.connect();
-    const database = client.db("InObscurum"); // Replace with your database name
-    const usersCollection = database.collection("Users"); // Replace with your collection name
+    const database = client.db("InObscurum");
+    const usersCollection = database.collection("Users");
 
     // Check if the email exists in your collection
     const user = await usersCollection.findOne({ email });
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 
     // Send an email with the reset link
     const transporter = nodemailer.createTransport({
-      service: "Gmail", // e.g., Gmail, Yahoo, etc.
+      service: "Gmail",
       auth: {
         user: "inobscurumgame@gmail.com",
         pass: "rzxytysomhbcdtsn",

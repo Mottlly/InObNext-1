@@ -15,8 +15,8 @@ router.post("/passwordReset", async (req, res) => {
   try {
     // Connect to MongoDB
     await client.connect();
-    const database = client.db("InObscurum"); // Replace with your database name
-    const usersCollection = database.collection("Users"); // Replace with your collection name
+    const database = client.db("InObscurum");
+    const usersCollection = database.collection("Users");
 
     // Find user by reset token and check token expiry
     const user = await usersCollection.findOne({
@@ -29,7 +29,7 @@ router.post("/passwordReset", async (req, res) => {
     }
 
     // Generate new hashed password
-    const hashedPassword = await bcrypt.hash(newPassword, 10); // Replace with your hashing method (e.g., bcrypt)
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
 
     // Update user's password and clear reset token fields
     await usersCollection.updateOne(
