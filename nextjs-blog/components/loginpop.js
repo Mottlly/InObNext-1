@@ -14,6 +14,7 @@ export default function FormDialog() {
   const [open, setOpen] = React.useState(true);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [user, setUser] = React.useState(null);
   const [error, setError] = React.useState("");
 
   const handleClickOpen = () => {
@@ -41,12 +42,15 @@ export default function FormDialog() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
+        setUser(data); // Set user information to state
         console.log("Logged in user:", data.user);
-        handleClose(); // Close dialog on successful login
       } else {
         const errorData = await response.json();
         setError(errorData.message || "Login failed");
+        setError("Failed to fetch user information");
       }
+      handleClose(); // Close dialog on successful login
     } catch (error) {
       console.error("Error during login:", error.message);
       setError("Login failed");

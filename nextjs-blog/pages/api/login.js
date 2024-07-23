@@ -33,7 +33,12 @@ export default async function handler(req, res) {
       const passwordMatch = await bcrypt.compare(password, user.password);
 
       if (passwordMatch) {
-        res.status(200).json({ message: "Authorized" });
+        res
+          .status(200)
+          .json({
+            message: "Authorized",
+            user: { id: user._id, email: user.email, progress: user.progress },
+          });
       } else {
         res.status(401).json({ message: "Unauthorized" });
       }

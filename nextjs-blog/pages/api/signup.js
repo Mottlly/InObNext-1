@@ -36,6 +36,7 @@ export default async function handler(req, res) {
     const newUser = {
       email: email,
       password: hashedPassword,
+      progress: "0",
     };
 
     // Insert the new user into the database
