@@ -4,16 +4,16 @@ import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
 
-//I need to handle the id or index of mockdb here, and pass it down and up just like with health
 export default function Main() {
   const [currentEvent, setCurrentEvent] = useState(1);
   const [healthOne, setHealthOne] = useState(5);
   const [healthTwo, setHealthTwo] = useState(5);
   const [healthThree, setHealthThree] = useState(5);
   const [healthFour, setHealthFour] = useState(5);
+  const [eventData, setEventData] = useState(null); // State for storing event data
 
   useEffect(() => {
-    // Check if token exists in localStorage
+    // Fetch token from localStorage
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -21,7 +21,28 @@ export default function Main() {
     } else {
       console.log("Token is valid");
     }
-  }, []); // Empty dependency array ensures this runs once on component mount
+  }, []); // Runs once on component mount
+
+  useEffect(() => {
+    // Fetch event data when currentEvent changes
+    const fetchEventData = async () => {
+      try {
+        const response = await fetch(
+          `/api/events?currentevent=${currentEvent}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        console.log(data);
+        setEventData(data);
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
+
+    fetchEventData();
+  }, [currentEvent]); // Runs when currentEvent changes
 
   return (
     <div>
@@ -37,6 +58,7 @@ export default function Main() {
         setHealthTwo={setHealthTwo}
         setHealthThree={setHealthThree}
         setHealthFour={setHealthFour}
+        eventData={eventData} // Pass eventData to DecisionCard if needed
       />
       <TrackContainer
         healthOne={healthOne}
