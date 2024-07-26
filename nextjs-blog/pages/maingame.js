@@ -6,7 +6,7 @@ import SpeedDial from "../components/speeddial";
 
 //I need to handle the id or index of mockdb here, and pass it down and up just like with health
 export default function Main() {
-  const [currentEvent, setCurrentEvent] = useState(0);
+  const [currentEvent, setCurrentEvent] = useState(1);
   const [healthOne, setHealthOne] = useState(5);
   const [healthTwo, setHealthTwo] = useState(5);
   const [healthThree, setHealthThree] = useState(5);
