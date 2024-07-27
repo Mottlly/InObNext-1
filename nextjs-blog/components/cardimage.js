@@ -7,6 +7,7 @@ register();
 
 export default function CardImage({
   currentEvent,
+  eventData,
   setCurrentEvent,
   setHealthOne,
   setHealthTwo,
@@ -17,37 +18,44 @@ export default function CardImage({
   const [swiper, setSwiper] = useState(null);
 
   useEffect(() => {
-    const swiper = swiperElRef.current.swiper;
-    setSwiper(swiper);
+    const swiperInstance = swiperElRef.current.swiper;
+    setSwiper(swiperInstance);
 
-    swiper.on("slideChange", () => {
-      const activeSlideIndex = swiper.activeIndex;
-      setCurrentEvent(activeSlideIndex);
-      setHealthOne(
-        (prevHealthOne) =>
-          prevHealthOne + dbMocks[activeSlideIndex].healthbars.hb1
-      );
-      setHealthTwo(
-        (prevHealthTwo) =>
-          prevHealthTwo + dbMocks[activeSlideIndex].healthbars.hb2
-      );
+    const onSlideChange = () => {
+      const activeSlideIndex = swiperInstance.activeIndex;
+
+      if (eventData) {
+        setCurrentEvent(eventData.event_number); // Ensure eventData is valid before accessing
+        console.log(currentEvent);
+      }
+
+      setHealthOne((prevHealthOne) => prevHealthOne + eventData.healthbars.hb1);
+      setHealthTwo((prevHealthTwo) => prevHealthTwo + eventData.healthbars.hb2);
       setHealthThree(
-        (prevHealthThree) =>
-          prevHealthThree + dbMocks[activeSlideIndex].healthbars.hb3
+        (prevHealthThree) => prevHealthThree + eventData.healthbars.hb3
       );
       setHealthFour(
-        (prevHealthFour) =>
-          prevHealthFour + dbMocks[activeSlideIndex].healthbars.hb4
+        (prevHealthFour) => prevHealthFour + eventData.healthbars.hb4
       );
-    });
-  }, []);
+    };
+
+    swiperInstance.on("slideChange", onSlideChange);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      swiperInstance.off("slideChange", onSlideChange);
+    };
+  }, [eventData]); // Depend on eventData to re-run when it changes
+
+  // Ensure the image source is valid
+  const imageSrc = eventData.image;
 
   return (
     <div id="swipercontainer">
       <swiper-container ref={swiperElRef} slides-per-view="1">
         <swiper-slide>
           <Image
-            src={dbMocks[currentEvent].image}
+            src={imageSrc}
             alt="Link Icon"
             layout="responsive"
             width={100}
@@ -55,10 +63,9 @@ export default function CardImage({
           />
         </swiper-slide>
         <swiper-slide>
-          {" "}
           <Image
             id="currenteventimage"
-            src={dbMocks[currentEvent].image}
+            src={imageSrc}
             alt="Link Icon"
             layout="responsive"
             width={100}
@@ -66,9 +73,8 @@ export default function CardImage({
           />
         </swiper-slide>
         <swiper-slide>
-          {" "}
           <Image
-            src={dbMocks[currentEvent].image}
+            src={imageSrc}
             alt="Link Icon"
             layout="responsive"
             width={100}
