@@ -5,7 +5,7 @@ import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
 
 export default function Main() {
-  const [currentEvent, setCurrentEvent] = useState(1);
+  const [currentEvent, setCurrentEvent] = useState(0);
   const [healthOne, setHealthOne] = useState(5);
   const [healthTwo, setHealthTwo] = useState(5);
   const [healthThree, setHealthThree] = useState(5);

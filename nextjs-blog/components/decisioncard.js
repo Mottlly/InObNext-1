@@ -17,6 +17,7 @@ export default function DecisionCard({
   const currentEventData = eventData
     ? eventData.find((event) => event.event_number === currentEvent)
     : null;
+  console.log(currentEventData);
 
   return (
     <>
@@ -28,6 +29,7 @@ export default function DecisionCard({
           <>
             <TypingTextBox text={currentEventData.text} />
             <CardImage
+              currentEventData={currentEventData}
               currentEvent={currentEvent}
               eventData={eventData}
               setCurrentEvent={setCurrentEvent}

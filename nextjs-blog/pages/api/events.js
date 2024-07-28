@@ -31,23 +31,31 @@ export default async function handler(req, res) {
       return res.status(404).json({ message: "Event not found" });
     }
 
-    // Fetch the next two events based on `nextswipe`
-    const nextEvents = await Promise.all([
-      collection.findOne({
-        event_number: currentEventNumber + currentEvent.nextswipe.right,
-      }),
-      collection.findOne({
-        event_number: currentEventNumber + currentEvent.nextswipe.left,
-      }),
-    ]);
+    // Initialize next events array
+    const nextEvents = [];
+    nextEvents.push(currentEvent);
 
-    // Filter out any null values (in case the next events don't exist)
-    const validNextEvents = nextEvents.filter((event) => event !== null);
+    // Check if nextswipe exists and fetch next events accordingly
+    if (currentEvent.nextswipe) {
+      const rightEventPromise = collection.findOne({
+        event_number: currentEvent.nextswipe.right,
+      });
 
-    // Combine current event with the valid next events
-    const responseEvents = [currentEvent, ...validNextEvents];
+      const leftEventPromise = collection.findOne({
+        event_number: currentEvent.nextswipe.left,
+      });
 
-    res.status(200).json(responseEvents);
+      const [rightEvent, leftEvent] = await Promise.all([
+        rightEventPromise,
+        leftEventPromise,
+      ]);
+
+      // Add only the valid next events
+      if (rightEvent) nextEvents.push(rightEvent);
+      if (leftEvent) nextEvents.push(leftEvent);
+    }
+
+    res.status(200).json(nextEvents);
   } catch (error) {
     console.error("Error fetching events:", error);
     res.status(500).json({ message: "Failed to fetch events" });

@@ -5,6 +5,7 @@ import Image from "next/legacy/image";
 register();
 
 export default function CardImage({
+  currentEventData,
   currentEvent,
   eventData,
   setCurrentEvent,
@@ -15,8 +16,10 @@ export default function CardImage({
 }) {
   const swiperElRef = useRef(null);
   const [swiper, setSwiper] = useState(null);
+  const [currentImage, setCurrentImage] = useState(null);
 
   useEffect(() => {
+    console.log("current event data banana:", currentEventData);
     const swiperInstance = swiperElRef.current.swiper;
     setSwiper(swiperInstance);
 
@@ -25,27 +28,27 @@ export default function CardImage({
       const activeIndex = swiperInstance.activeIndex; // Index of the currently active slide
 
       if (eventData) {
-        const currentEventData = eventData[currentEvent];
-
         if (currentEventData) {
           // Determine the direction of the swipe
-          let nextEventIndex;
+          let nextEvent;
 
           if (activeIndex > previousIndex) {
+            console.log("active index:", activeIndex);
+            console.log("prev index:", previousIndex);
             // Swiped to the next event (right)
-            nextEventIndex = currentEventData.nextswipe.right; // Get the event number for the right swipe
+            nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
           } else if (activeIndex < previousIndex) {
             // Swiped to the previous event (left)
-            nextEventIndex = currentEventData.nextswipe.left; // Get the event number for the left swipe
+            nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
           }
 
           // Check if nextEventIndex is defined and valid
-          if (nextEventIndex !== undefined) {
+          if (nextEvent !== undefined) {
             // Update current event
-            setCurrentEvent(nextEventIndex);
+            setCurrentEvent(nextEvent);
 
             // Update health based on the current event data
-            const nextEventData = eventData[nextEventIndex];
+            const nextEventData = eventData[nextEvent];
             if (nextEventData) {
               setHealthOne(
                 (prevHealthOne) => prevHealthOne + nextEventData.healthbars.hb1
@@ -73,29 +76,26 @@ export default function CardImage({
     return () => {
       swiperInstance.off("slideChange", onSlideChange);
     };
-  }, [eventData, currentEvent]); // Depend on eventData and currentEvent to re-run when they change
-
-  // Ensure the image source is valid; fallback to a default image if eventData is not available
-  const imageSrc =
-    eventData && eventData[currentEvent]
-      ? eventData[currentEvent].image
-      : "/fallback-image.jpg";
+  }, [currentEvent]); //currentEvent to re-run when they change
 
   return (
     <div id="swipercontainer">
       <swiper-container ref={swiperElRef} slides-per-view="1">
         {eventData &&
-          eventData.map((event) => (
-            <swiper-slide key={event.event_number}>
-              <Image
-                src={event.image}
-                alt={`Image for event ${event.event_number}`}
-                layout="responsive"
-                width={100}
-                height={100}
-              />
-            </swiper-slide>
-          ))}
+          eventData.map((event) => {
+            console.log("event image:", event.image);
+            return (
+              <swiper-slide key={event.event_number}>
+                <Image
+                  src={event.image}
+                  alt={`Image for event ${event.event_number}`}
+                  layout="responsive"
+                  width={100}
+                  height={100}
+                />
+              </swiper-slide>
+            );
+          })}
       </swiper-container>
     </div>
   );
