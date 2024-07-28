@@ -10,10 +10,9 @@ export default function Main() {
   const [healthTwo, setHealthTwo] = useState(5);
   const [healthThree, setHealthThree] = useState(5);
   const [healthFour, setHealthFour] = useState(5);
-  const [eventData, setEventData] = useState([]); // State for storing multiple event data
+  const [eventData, setEventData] = useState([]);
 
   useEffect(() => {
-    // Fetch token from localStorage
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -21,7 +20,7 @@ export default function Main() {
     } else {
       console.log("Token is valid");
     }
-  }, []); // Runs once on component mount
+  }, []);
 
   useEffect(() => {
     // Fetch event data when currentEvent changes
@@ -34,10 +33,8 @@ export default function Main() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-
-        // Assuming the API returns an array of events based on currentEvent and nextswipe
         console.log(data);
-        setEventData(data); // Set the array of events (current event and next ones)
+        setEventData(data);
       } catch (error) {
         console.error("Error fetching event data:", error);
       }
@@ -60,7 +57,7 @@ export default function Main() {
         setHealthTwo={setHealthTwo}
         setHealthThree={setHealthThree}
         setHealthFour={setHealthFour}
-        eventData={eventData} // Pass the array of event data
+        eventData={eventData}
       />
       <TrackContainer
         healthOne={healthOne}

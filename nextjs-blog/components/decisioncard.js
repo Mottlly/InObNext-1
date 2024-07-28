@@ -29,7 +29,7 @@ export default function DecisionCard({
             <TypingTextBox text={currentEventData.text} />
             <CardImage
               currentEvent={currentEvent}
-              eventData={currentEventData} // Pass the specific event data for the current event
+              eventData={eventData}
               setCurrentEvent={setCurrentEvent}
               setHealthOne={setHealthOne}
               setHealthTwo={setHealthTwo}
@@ -38,7 +38,7 @@ export default function DecisionCard({
             />
           </>
         ) : (
-          <div>Loading event data...</div> // Fallback UI while loading
+          <div>Loading event data...</div>
         )}
       </div>
     </>
