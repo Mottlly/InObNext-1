@@ -17,7 +17,7 @@ export default function DecisionCard({
   const currentEventData = eventData
     ? eventData.find((event) => event.event_number === currentEvent)
     : null;
-  console.log(currentEventData);
+  console.log("Decision Card Current", currentEventData);
 
   return (
     <>

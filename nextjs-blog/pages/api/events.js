@@ -31,11 +31,11 @@ export default async function handler(req, res) {
       return res.status(404).json({ message: "Event not found" });
     }
 
-    // Initialize next events array
-    const nextEvents = [];
-    nextEvents.push(currentEvent);
+    // Initialize left and right events
+    let leftEvent = null;
+    let rightEvent = null;
 
-    // Check if nextswipe exists and fetch next events accordingly
+    // Check if nextswipe exists and fetch left and right events accordingly
     if (currentEvent.nextswipe) {
       const rightEventPromise = collection.findOne({
         event_number: currentEvent.nextswipe.right,
@@ -45,17 +45,21 @@ export default async function handler(req, res) {
         event_number: currentEvent.nextswipe.left,
       });
 
-      const [rightEvent, leftEvent] = await Promise.all([
-        rightEventPromise,
+      // Fetch both events concurrently
+      [leftEvent, rightEvent] = await Promise.all([
         leftEventPromise,
+        rightEventPromise,
       ]);
-
-      // Add only the valid next events
-      if (rightEvent) nextEvents.push(rightEvent);
-      if (leftEvent) nextEvents.push(leftEvent);
     }
 
-    res.status(200).json(nextEvents);
+    // Construct the response as an array
+    const response = [
+      leftEvent || null, // leftevent
+      currentEvent, // currentevent
+      rightEvent || null, // rightevent
+    ];
+
+    res.status(200).json(response);
   } catch (error) {
     console.error("Error fetching events:", error);
     res.status(500).json({ message: "Failed to fetch events" });

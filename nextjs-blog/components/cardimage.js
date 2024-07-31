@@ -16,35 +16,39 @@ export default function CardImage({
 }) {
   const swiperElRef = useRef(null);
   const [swiper, setSwiper] = useState(null);
-  const [currentImage, setCurrentImage] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0); // Track the current slide index
 
   useEffect(() => {
-    console.log("current event data banana:", currentEventData);
     const swiperInstance = swiperElRef.current.swiper;
     setSwiper(swiperInstance);
 
     const onSlideChange = () => {
       const previousIndex = swiperInstance.previousIndex; // Index of the previous slide
-      const activeIndex = swiperInstance.activeIndex; // Index of the currently active slide
+      const currentIndex = swiperInstance.activeIndex; // Index of the currently active slide
+      setActiveIndex(currentIndex); // Update active index
 
-      if (eventData) {
-        if (currentEventData) {
-          // Determine the direction of the swipe
-          let nextEvent;
+      if (eventData && currentEventData) {
+        let nextEvent;
 
-          if (activeIndex > previousIndex) {
-            console.log("active index:", activeIndex);
-            console.log("prev index:", previousIndex);
-            // Swiped to the next event (right)
-            nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
-          } else if (activeIndex < previousIndex) {
-            // Swiped to the previous event (left)
-            nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
-          }
+        // Determine the new event based on swipe direction
+        if (currentIndex > previousIndex) {
+          nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
+        } else if (currentIndex < previousIndex) {
+          nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
+        }
 
-          // Check if nextEventIndex is defined and valid
-          if (nextEvent !== undefined) {
-            // Update current event
+        // Ensure nextEvent is valid and within bounds
+        if (
+          nextEvent !== undefined &&
+          nextEvent >= 0 &&
+          nextEvent < eventData.length
+        ) {
+          // Update current event only if it's different
+          //it is THIS. IF THIS IS REMOVED DOUBLE RENDER DOESNT HAPPEN
+          //YEAH ITS THIS FORE SURE
+          if (nextEvent !== currentEvent) {
+            console.log("current event:", currentEvent);
+            console.log("next event:", nextEvent);
             setCurrentEvent(nextEvent);
 
             // Update health based on the current event data
@@ -69,21 +73,37 @@ export default function CardImage({
         }
       }
     };
-
+    // okay, if the below doesn't happen, then nothing happens when slide BUT also no re-render.
     swiperInstance.on("slideChange", onSlideChange);
 
     // Cleanup the event listener on component unmount
     return () => {
       swiperInstance.off("slideChange", onSlideChange);
     };
-  }, [currentEvent]); //currentEvent to re-run when they change
+  }, [currentEvent, eventData]); // currentEvent and eventData to re-run when they change
+
+  // Effect to handle when eventData updates
+  useEffect(() => {
+    if (swiper) {
+      swiper.update(); // Update Swiper when eventData changes
+      swiper.slideTo(activeIndex, 0); // Keep the current slide active
+    }
+  }, [eventData, swiper]);
+
+  // Effect to set the initial slide to the middle one
+  useEffect(() => {
+    if (swiper && eventData.length > 0) {
+      const middleIndex = Math.floor(eventData.length / 2);
+      swiper.slideTo(middleIndex, 0); // Move to the middle slide
+      setActiveIndex(middleIndex); // Set active index to the middle slide
+    }
+  }, [swiper, eventData]);
 
   return (
     <div id="swipercontainer">
       <swiper-container ref={swiperElRef} slides-per-view="1">
         {eventData &&
           eventData.map((event) => {
-            console.log("event image:", event.image);
             return (
               <swiper-slide key={event.event_number}>
                 <Image

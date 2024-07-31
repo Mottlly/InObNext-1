@@ -33,7 +33,7 @@ export default function Main() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log(data);
+        console.log("maingame received data", data);
         setEventData(data);
       } catch (error) {
         console.error("Error fetching event data:", error);
