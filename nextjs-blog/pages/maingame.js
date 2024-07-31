@@ -1,16 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
 
-//I need to handle the id or index of mockdb here, and pass it down and up just like with health
 export default function Main() {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [healthOne, setHealthOne] = useState(5);
   const [healthTwo, setHealthTwo] = useState(5);
   const [healthThree, setHealthThree] = useState(5);
   const [healthFour, setHealthFour] = useState(5);
+  const [eventData, setEventData] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      console.log("Token is invalid");
+    } else {
+      console.log("Token is valid");
+    }
+  }, []);
+
+  useEffect(() => {
+    // Fetch event data when currentEvent changes
+    const fetchEventData = async () => {
+      try {
+        const response = await fetch(
+          `/api/events?currentevent=${currentEvent}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        console.log("maingame received data", data);
+        setEventData(data);
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
+
+    fetchEventData();
+  }, [currentEvent]); // Runs when currentEvent changes
+
   return (
     <div>
       <Head>
@@ -25,6 +57,7 @@ export default function Main() {
         setHealthTwo={setHealthTwo}
         setHealthThree={setHealthThree}
         setHealthFour={setHealthFour}
+        eventData={eventData}
       />
       <TrackContainer
         healthOne={healthOne}

@@ -8,11 +8,13 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import CreateAccount from "../components/createuser";
+import ResetPasswordRequest from "../components/passwordResetRequestPop";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(true);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [user, setUser] = React.useState(null);
   const [error, setError] = React.useState("");
 
   const handleClickOpen = () => {
@@ -40,12 +42,16 @@ export default function FormDialog() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
+        localStorage.setItem("token", data.token);
+        setUser(data); // Set user information to state
         console.log("Logged in user:", data.user);
-        handleClose(); // Close dialog on successful login
       } else {
         const errorData = await response.json();
         setError(errorData.message || "Login failed");
+        setError("Failed to fetch user information");
       }
+      handleClose(); // Close dialog on successful login
     } catch (error) {
       console.error("Error during login:", error.message);
       setError("Login failed");
@@ -55,7 +61,7 @@ export default function FormDialog() {
   return (
     <React.Fragment>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
+        Login
       </Button>
       <Dialog
         open={open}
@@ -102,7 +108,7 @@ export default function FormDialog() {
         </DialogContent>
         <DialogActions>
           <Button type="submit">Log In</Button>
-          <Button type="submit">Forgot Password</Button>
+          <ResetPasswordRequest />
           <Button onClick={handleClose}>Continue As Guest</Button>
         </DialogActions>
         <DialogContent>
