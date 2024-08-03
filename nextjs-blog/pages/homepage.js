@@ -1,9 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import OpeningCrawl from "./opener";
-import SpeedDial from "../components/speeddial";
-import FormDialog from "../components/loginpop";
-import CreateAccount from "../components/createuser";
+import TopBar from "../components/topbar";
 
 export default function Home() {
   return (
@@ -12,10 +10,8 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
 
-      <SpeedDial />
+      <TopBar />
       <OpeningCrawl />
-      <FormDialog />
-      <CreateAccount />
 
       <style jsx global>{`
         html,

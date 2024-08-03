@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "../styles/loginbuttons.module.scss";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -58,7 +59,13 @@ export default function CreateAccount() {
 
   return (
     <React.Fragment>
-      <Button onClick={handleClickOpen}>Create Account</Button>
+      <Button
+        variant="outlined"
+        onClick={handleClickOpen}
+        className={styles.loginButton}
+      >
+        Create Account
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
