@@ -18,6 +18,7 @@ export default function FormDialog() {
   const [error, setError] = React.useState("");
 
   const handleClickOpen = () => {
+    console.log("Login button clicked");
     setOpen(true);
   };
 

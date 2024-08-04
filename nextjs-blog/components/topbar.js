@@ -8,10 +8,8 @@ export default function TopBar() {
   return (
     <div className={styles.topbarparent}>
       <SpeedDial />
-      <div className={styles.topbarbuttons}>
-        <FormDialog />
-        <CreateAccount />
-      </div>
+      <FormDialog />
+      <CreateAccount />
     </div>
   );
 }
