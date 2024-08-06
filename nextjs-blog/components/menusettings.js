@@ -1,24 +1,11 @@
 import React, { useState } from "react";
 import styles from "../styles/transoverlay.module.scss";
-import SettingsIcon from "@mui/icons-material/Settings";
 import { Slider, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const FullscreenOverlay = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [navWidth, setNavWidth] = useState("0%");
+const MenuscreenOverlay = ({ isOpen, onClose }) => {
   const [volume, setVolume] = useState(50); // Default volume
   const [brightness, setBrightness] = useState(50); // Default brightness
-
-  const openNav = () => {
-    setNavWidth("100%");
-    setIsOpen(true);
-  };
-
-  const closeNav = () => {
-    setNavWidth("0%");
-    setIsOpen(false);
-  };
 
   const handleVolumeChange = (event, newValue) => {
     setVolume(newValue);
@@ -30,13 +17,12 @@ const FullscreenOverlay = () => {
 
   return (
     <div>
-      <SettingsIcon onClick={openNav} style={{ cursor: "pointer" }} />
       {isOpen && (
-        <div id="myNav" className={styles.overlay} style={{ width: navWidth }}>
+        <div id="myNav" className={styles.overlay} style={{ width: "100%" }}>
           <IconButton
             edge="end"
             color="inherit"
-            onClick={closeNav}
+            onClick={onClose}
             className={styles.closebtn}
           >
             <CloseIcon />
@@ -74,4 +60,4 @@ const FullscreenOverlay = () => {
   );
 };
 
-export default FullscreenOverlay;
+export default MenuscreenOverlay;
