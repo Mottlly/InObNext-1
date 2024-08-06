@@ -1,0 +1,15 @@
+.topbarparent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topbarbuttons {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    flex-direction: row;
+    position: absolute;
+    top: 27px;
+    right: 16px;
+}

@@ -9,7 +9,7 @@ import LocalMovies from "@mui/icons-material/LocalMovies";
 
 const actions = [
   { icon: <PlayArrow />, name: "MainGame", href: "/maingame" },
-  { icon: <LocalMovies />, name: "Movie", href: "/homepage" },
+  { icon: <LocalMovies />, name: "Movie", href: "/menu" },
   { icon: <Copyright />, name: "Credits", href: "/credits" },
   {
     icon: <FullscreenOverlay />,

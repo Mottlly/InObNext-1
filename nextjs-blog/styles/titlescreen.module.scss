@@ -1,0 +1,91 @@
+.opening-crawl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 4rem;
+    margin-bottom: 10px;
+  }
+  
+  .logo {
+    width: 80%; /* Responsive logo size */
+    max-width: 800px; /* Limits maximum size */
+    border: 3px solid #333; /* Dark border for contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Black shadow for visibility */
+    transition: width 0.3s ease;
+  }
+  
+  .intro {
+    margin: 20px;
+  }
+  
+  .welcome-message {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto; /* Center text block */
+  }
+  
+  /* Style for button stack */
+  .buttons {
+    display: flex;
+    flex-direction: column; /* Vertical layout */
+    gap: 16px; /* Space between buttons */
+    align-items: center; /* Center buttons horizontally */
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+  
+    .welcome-message {
+      font-size: 1.2rem;
+    }
+  
+    .description {
+      font-size: 0.9rem;
+    }
+  
+    .buttons {
+      gap: 12px; /* Adjust space between buttons on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 1.8rem;
+    }
+  
+    .logo {
+      width: 90%;
+    }
+  
+    .welcome-message {
+      font-size: 1rem;
+    }
+  
+    .description {
+      font-size: 0.8rem;
+    }
+  }

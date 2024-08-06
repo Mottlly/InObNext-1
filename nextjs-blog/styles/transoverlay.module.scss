@@ -1,46 +1,37 @@
-/* The Overlay (background) */
 .overlay {
-  height: 100vh;
-  width: 100%;
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  width: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
   overflow-x: hidden;
-  transition: 0.5s; 
+  transition: 0.5s;
+  z-index: 1000; /* Ensure it appears on top */
+  padding: 20px;
 }
 
-/* Position the content inside the overlay */
 .overlaycontent {
   position: relative;
-  width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #f1f1f1;
+  transform: translateY(-50%);
 }
 
-/* The navigation links inside the overlay */
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block; /* Display block instead of inline */
-  transition: 0.3s; /* Transition effects on hover (color) */
-  
-}
-
-/* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   color: #f1f1f1;
 }
 
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  cursor: pointer;
-  color: white;
+.sliderContainer {
+  margin-top: 20px;
+}
+
+.MuiSlider-root {
+  margin: 10px 0;
 }
 

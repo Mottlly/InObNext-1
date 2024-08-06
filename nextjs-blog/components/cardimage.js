@@ -17,12 +17,20 @@ export default function CardImage({
   const swiperElRef = useRef(null);
   const [swiper, setSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0); // Track the current slide index
+  const renderBlockRef = useRef(true); // Use useRef to track the block state
 
   useEffect(() => {
     const swiperInstance = swiperElRef.current.swiper;
     setSwiper(swiperInstance);
 
     const onSlideChange = () => {
+      if (renderBlockRef.current) {
+        console.log("blocked");
+        renderBlockRef.current = false; // Use ref to set the block state
+        console.log(renderBlockRef.current);
+        return; // Prevent action on initial render
+      }
+
       const previousIndex = swiperInstance.previousIndex; // Index of the previous slide
       const currentIndex = swiperInstance.activeIndex; // Index of the currently active slide
       setActiveIndex(currentIndex); // Update active index
@@ -73,7 +81,7 @@ export default function CardImage({
         }
       }
     };
-    // okay, if the below doesn't happen, then nothing happens when slide BUT also no re-render.
+    renderBlockRef.current = true; // Use ref to set the block state
     swiperInstance.on("slideChange", onSlideChange);
 
     // Cleanup the event listener on component unmount
