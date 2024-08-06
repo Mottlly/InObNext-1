@@ -1,35 +1,43 @@
+import React, { useState } from "react";
+import styles from "../styles/titlescreen.module.scss";
+import { Button, Stack } from "@mui/material";
+import MenuscreenOverlay from "../components/menusettings";
+
 function OpeningCrawl() {
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+  const openOverlay = () => setIsOverlayOpen(true);
+  const closeOverlay = () => setIsOverlayOpen(false);
+
   return (
-    //need a parent container/element
-    <>
-      <div id="container">
-        <div id="header" className="introcont">
-          <h1> Welcome to the not-so-distant future.... </h1>
-          <img
-            src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/0c7eb6ed-663b-4ce4-bfbd-18239a38ba1b"
-            width="500"
-          ></img>
-        </div>
-
-        <div id="intro" className="introcont">
-          <h3>
-            {" "}
-            After the resource wars of the late 21st Century, Earth's nations
-            are desperate for new deposits of rare minerals, gas, and water.
-            While asteroid mining has been effective, it just isn't enough to
-            support the Earth's still-growing population (and many refuse to
-            speak about what happened on Mars). The last hopes of humanity are
-            increasingly placed in the results of explorers, who bravely delve
-            deep into the space between galaxys. Earth's days are limited, may
-            we find our salvation among the stars. In Obscurum!{" "}
-          </h3>
-        </div>
-
-        <div id="summary">
-          <h1> I hope you enjoy the game! </h1>
-        </div>
+    <div className={styles["opening-crawl"]}>
+      <MenuscreenOverlay isOpen={isOverlayOpen} onClose={closeOverlay} />
+      <div className={styles.header}>
+        <h1 className={styles.title}>In Obscurum</h1>
+        <img
+          src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/0c7eb6ed-663b-4ce4-bfbd-18239a38ba1b"
+          alt="Game Logo"
+          className={styles.logo}
+        />
       </div>
-    </>
+      <div className={styles.intro}>
+        <h3 className={styles["welcome-message"]}>
+          Welcome to the not-so-distant future...
+        </h3>
+        <Stack spacing={2} mt={4}>
+          <Button variant="outlined">Continue</Button>
+          <Button variant="outlined" href="/maingame">
+            Play
+          </Button>
+          <Button variant="outlined" onClick={openOverlay}>
+            Settings
+          </Button>
+          <Button variant="outlined" href="/credits">
+            Credits
+          </Button>
+        </Stack>
+      </div>
+    </div>
   );
 }
 
