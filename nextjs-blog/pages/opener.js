@@ -25,14 +25,28 @@ function OpeningCrawl() {
           Welcome to the not-so-distant future...
         </h3>
         <Stack spacing={2} mt={4}>
-          <Button variant="outlined">Continue</Button>
-          <Button variant="outlined" href="/maingame">
+          <Button variant="outlined" className={styles["MuiButton-root"]}>
+            Continue
+          </Button>
+          <Button
+            variant="outlined"
+            href="/maingame"
+            className={styles["MuiButton-root"]}
+          >
             Play
           </Button>
-          <Button variant="outlined" onClick={openOverlay}>
+          <Button
+            variant="outlined"
+            onClick={openOverlay}
+            className={styles["MuiButton-root"]}
+          >
             Settings
           </Button>
-          <Button variant="outlined" href="/credits">
+          <Button
+            variant="outlined"
+            href="/credits"
+            className={styles["MuiButton-root"]}
+          >
             Credits
           </Button>
         </Stack>
