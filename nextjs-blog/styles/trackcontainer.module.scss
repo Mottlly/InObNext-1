@@ -9,3 +9,14 @@
     justify-content: space-around;
     max-width: 768px;
 }
+
+.healthItem {
+    margin-bottom: 20px; /* Adjust spacing as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .healthItem .MuiSvgIcon-root {
+    margin-top: 8px; /* Adjust space between HealthBar and icon */
+  }
