@@ -3,13 +3,15 @@
     display: flex;
     border-color: white;
     border-style: double;
-    margin-left: auto;
-    margin-right: auto;
     flex-direction: column;
     max-width: 768px;
-    max-height: 60vh;
     overflow: hidden;
+    border-radius: 22px;
+    margin: 0 auto; /* Center horizontally */
+    width: 100%; /* Allow it to scale with the container width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 
+    /* Media queries for responsive margins */
     @media (max-width: 768px) {
         margin-left: 2%; 
         margin-right: 2%; 

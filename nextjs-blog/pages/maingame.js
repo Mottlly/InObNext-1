@@ -23,7 +23,6 @@ export default function Main() {
   }, []);
 
   useEffect(() => {
-    // Fetch event data when currentEvent changes
     const fetchEventData = async () => {
       try {
         const response = await fetch(
@@ -41,10 +40,10 @@ export default function Main() {
     };
 
     fetchEventData();
-  }, [currentEvent]); // Runs when currentEvent changes
+  }, [currentEvent]);
 
   return (
-    <div>
+    <div className="page-container">
       <Head>
         <title>Main Game Screen</title>
       </Head>
@@ -77,6 +76,8 @@ export default function Main() {
           color-scheme: light dark;
           color: rgba(255, 255, 255, 0.87);
           background-color: #242424;
+          height: 100%; /* Ensure body takes full height */
+          width: 100%; /* Ensure body takes full width */
         }
 
         a {
@@ -91,6 +92,15 @@ export default function Main() {
         img {
           max-width: 100%;
           height: auto;
+        }
+
+        .page-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center; /* Center horizontally */
+          justify-content: flex-start; /* Align items at the start of the container */
+          height: 100%; /* Full height of the parent */
+          width: 100%; /* Full width of the parent */
         }
 
         #container {
@@ -131,8 +141,8 @@ export default function Main() {
         }
 
         .healthSection {
-          width: 20px; /* Adjust width as needed */
-          height: 20px; /* Adjust height as needed */
+          width: 20px;
+          height: 20px;
           margin-right: 5px;
           border: 1px solid #000;
         }

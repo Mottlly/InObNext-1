@@ -1,9 +1,12 @@
 .healthBar {
   display: flex;
-  align-items: center;
-  margin-right: 20px;
-  margin-top: 20px;
   flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically (if needed) */
+  flex-wrap: wrap;         /* Allows wrapping of items if there are many */
+  width: 100%;             /* Make sure the container is full width */
+  height: auto;
+  border-radius: 8px;            /* Adjust height as needed */
 }
 
 .healthSection {
@@ -11,9 +14,48 @@
   height: 10px;
   border: 2px solid white;
   margin: 1.5px;
-
+  border-radius: 4px; /* Add rounded corners */
 }
 
 .healthy {
   background-color: white;
+  border-radius: 4px; /* Ensure the background color matches the rounded corners */
+}
+
+.flashGreen {
+  animation: flashGreen 0.5s ease-in-out;
+}
+
+.flashRed {
+  animation: flashRed 0.5s ease-in-out;
+}
+
+@keyframes flashGreen {
+  0% { background-color: #242424; } /* Background color */
+  10% { background-color: #1e6f1e; } /* Very dark green */
+  20% { background-color: #2d8a2d; } /* Dark green */
+  30% { background-color: #3fb03f; } /* Medium green */
+  40% { background-color: #4cdb4c; } /* Light medium green */
+  50% { background-color: #66ff66; } /* Light green */
+  60% { background-color: #4cdb4c; } /* Light medium green */
+  70% { background-color: #3fb03f; } /* Medium green */
+  80% { background-color: #2d8a2d; } /* Dark green */
+  90% { background-color: #1e6f1e; } /* Very dark green */
+  95% { background-color: #3b3b3b; } /* Very dark grey-green, close to background */
+  100% { background-color: #242424; } /* Background color */
+}
+
+@keyframes flashRed {
+  0% { background-color: #242424; } /* Background color */
+  10% { background-color: #6f1e1e; } /* Very dark red */
+  20% { background-color: #8a2d2d; } /* Dark red */
+  30% { background-color: #b03f3f; } /* Medium red */
+  40% { background-color: #d94c4c; } /* Light medium red */
+  50% { background-color: #ff6666; } /* Light red */
+  60% { background-color: #d94c4c; } /* Light medium red */
+  70% { background-color: #b03f3f; } /* Medium red */
+  80% { background-color: #8a2d2d; } /* Dark red */
+  90% { background-color: #6f1e1e; } /* Very dark red */
+  95% { background-color: #3b3b3b; } /* Very dark grey-red, close to background */
+  100% { background-color: #242424; } /* Background color */
 }
