@@ -1,12 +1,12 @@
 .healthBar {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically (if needed) */
-  flex-wrap: wrap;         /* Allows wrapping of items if there are many */
-  width: 100%;             /* Make sure the container is full width */
+  justify-content: center; 
+  align-items: center;     
+  flex-wrap: wrap;       
+  width: 100%;           
   height: auto;
-  border-radius: 8px;            /* Adjust height as needed */
+  border-radius: 8px;          
 }
 
 .healthSection {
@@ -14,12 +14,12 @@
   height: 10px;
   border: 2px solid white;
   margin: 1.5px;
-  border-radius: 4px; /* Add rounded corners */
+  border-radius: 4px;
 }
 
 .healthy {
   background-color: white;
-  border-radius: 4px; /* Ensure the background color matches the rounded corners */
+  border-radius: 4px; 
 }
 
 .flashGreen {
