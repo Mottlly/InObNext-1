@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/decisioncard.module.scss";
-import CardImage from "./cardImage";
+import CardImage from "./cardImage.js";
 import TypingTextBox from "./typingTextBox";
 
 export default function DecisionCard({
