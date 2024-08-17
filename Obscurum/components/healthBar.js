@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../styles/healthbar.module.scss";
+import styles from "../styles/healthBar.module.scss";
 
 const HealthBar = ({ health }) => {
   const [prevFilledSections, setPrevFilledSections] = useState(health);

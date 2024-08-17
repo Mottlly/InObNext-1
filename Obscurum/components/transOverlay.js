@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/transoverlay.module.scss";
+import styles from "../styles/transOverlay.module.scss";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Slider, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";

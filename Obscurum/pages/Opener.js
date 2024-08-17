@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/titlescreen.module.scss";
+import styles from "../styles/titleScreen.module.scss";
 import { Button, Stack } from "@mui/material";
 import MenuscreenOverlay from "../components/menuSettings";
 

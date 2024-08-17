@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/mainGame.module.scss";
-import TrackContainer from "../components/trackcontainer";
-import DecisionCard from "../components/decisioncard";
-import SpeedDial from "../components/speeddial";
+import TrackContainer from "../components/trackContainer";
+import DecisionCard from "../components/decisionCard";
+import SpeedDial from "../components/speedDial";
 
 export default function Main() {
   const [currentEvent, setCurrentEvent] = useState(0);

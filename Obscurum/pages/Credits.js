@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import CreditsContainer from "../components/creditscontainer";
-import FullscreenOverlay from "../components/transoverlay";
-import SpeedDial from "../components/speeddial";
+import CreditsContainer from "../components/creditsContainer";
+import FullscreenOverlay from "../components/transOverlay";
+import SpeedDial from "../components/speedDial";
 /* add object that contains content for the props */
 export default function Credits() {
   return (
