@@ -7,10 +7,8 @@ Welcome to **Obscurum**! This is an engaging sci-fi game built with modern techn
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -34,11 +32,23 @@ Obscurum is a sci-fi game where players navigate through a futuristic world, eng
 - **React:** JavaScript library for building user interfaces and handling game interactions.
 - **MongoDB:** NoSQL database for storing game data, user profiles, and progress.
 
-## Installation
+## Usage
 
-To get started with Obscurum, follow these steps:
+After starting the development server, you can access the game through your browser at `http://localhost:3000`. Follow the on-screen instructions to create an account, start a new game, and begin your adventure in the world of Obscurum.
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/obscurum.git
-   cd obscurum
+## API Documentation
+
+For detailed information on how to interact with the game's internal API, refer to the [API Documentation](docs/api.md). This includes endpoints for managing user sessions, saving progress, and retrieving game data.
+
+## License
+
+Obscurum is licensed under the [MIT License](LICENSE). See the LICENSE file for more details.
+
+## Contact
+
+For any questions or feedback, you can reach us at:
+
+- **Email:** support@obscurumgame.com
+- **GitHub Issues:** [Obscurum Issues](https://github.com/yourusername/obscurum/issues)
+
+Thank you for playing Obscurum and contributing to its development!
