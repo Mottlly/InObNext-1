@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import OpeningCrawl from "./opener";
+import OpeningCrawl from "./Opener";
 
 export default function Home() {
   return (
