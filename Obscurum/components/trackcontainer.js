@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import HealthBar from "../components/healthbar";
+import HealthBar from "./healthbar";
 import styles from "../styles/trackcontainer.module.scss";
 import BuildIcon from "@mui/icons-material/Build";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";

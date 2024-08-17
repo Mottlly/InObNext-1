@@ -1,25 +1,55 @@
 .healthBar {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically (if needed) */
-  flex-wrap: wrap;         /* Allows wrapping of items if there are many */
-  width: 100%;             /* Make sure the container is full width */
+  justify-content: center; 
+  align-items: center;     
+  flex-wrap: wrap;       
+  width: 100%;           
   height: auto;
-  border-radius: 8px;            /* Adjust height as needed */
+  border-radius: 8px;          
 }
 
+//* Base styles */
 .healthSection {
-  width: 10px;  
-  height: 10px;
+  width: 2vw;  
+  height: 2vw;
   border: 2px solid white;
   margin: 1.5px;
-  border-radius: 4px; /* Add rounded corners */
+  border-radius: 4px;
+}
+
+/* Adjust sizes for larger screens */
+@media (min-width: 800px) {
+  .healthSection {
+    width: 1.5vw;  
+    height: 1.5vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .healthSection {
+    width: 1vw;  
+    height: 1vw;
+  }
+}
+
+@media (min-width: 1600px) {
+  .healthSection {
+    width: 0.75vw;  
+    height: 0.75vw;
+  }
+}
+
+@media (min-width: 2000px) {
+  .healthSection {
+    width: 20px;  
+    height: 20px;
+  }
 }
 
 .healthy {
   background-color: white;
-  border-radius: 4px; /* Ensure the background color matches the rounded corners */
+  border-radius: 4px; 
 }
 
 .flashGreen {

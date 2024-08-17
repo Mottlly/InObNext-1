@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import styles from "../styles/mainGame.module.scss";
 import TrackContainer from "../components/trackcontainer";
 import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/speeddial";
@@ -43,27 +44,29 @@ export default function Main() {
   }, [currentEvent]);
 
   return (
-    <div className="page-container">
+    <div className={styles["page-container"]}>
       <Head>
         <title>Main Game Screen</title>
       </Head>
 
-      <SpeedDial />
-      <DecisionCard
-        currentEvent={currentEvent}
-        setCurrentEvent={setCurrentEvent}
-        setHealthOne={setHealthOne}
-        setHealthTwo={setHealthTwo}
-        setHealthThree={setHealthThree}
-        setHealthFour={setHealthFour}
-        eventData={eventData}
-      />
-      <TrackContainer
-        healthOne={healthOne}
-        healthTwo={healthTwo}
-        healthThree={healthThree}
-        healthFour={healthFour}
-      />
+      <div className={styles["content"]}>
+        <SpeedDial />
+        <DecisionCard
+          currentEvent={currentEvent}
+          setCurrentEvent={setCurrentEvent}
+          setHealthOne={setHealthOne}
+          setHealthTwo={setHealthTwo}
+          setHealthThree={setHealthThree}
+          setHealthFour={setHealthFour}
+          eventData={eventData}
+        />
+        <TrackContainer
+          healthOne={healthOne}
+          healthTwo={healthTwo}
+          healthThree={healthThree}
+          healthFour={healthFour}
+        />
+      </div>
 
       <style jsx global>{`
         html,
@@ -95,6 +98,10 @@ export default function Main() {
         }
 
         .page-container {
+          background-image: url("../public/galBack.jpg"); /* Replace with your image URL */
+          background-size: cover; /* Cover the entire screen */
+          background-position: center; /* Center the background image */
+          background-repeat: no-repeat; /* Prevent repeating */
           display: flex;
           flex-direction: column;
           align-items: center; /* Center horizontally */

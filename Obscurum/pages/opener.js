@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/titlescreen.module.scss";
 import { Button, Stack } from "@mui/material";
-import MenuscreenOverlay from "../components/menusettings";
+import MenuscreenOverlay from "../components/menuSettings";
 
 function OpeningCrawl() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
@@ -30,7 +30,7 @@ function OpeningCrawl() {
           </Button>
           <Button
             variant="outlined"
-            href="/maingame"
+            href="/mainGame"
             className={styles["MuiButton-root"]}
           >
             Play
@@ -44,7 +44,7 @@ function OpeningCrawl() {
           </Button>
           <Button
             variant="outlined"
-            href="/credits"
+            href="/Credits"
             className={styles["MuiButton-root"]}
           >
             Credits

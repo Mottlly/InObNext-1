@@ -7,8 +7,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import CreateAccount from "../components/createuser";
-import ResetPasswordRequest from "../components/passwordResetRequestPop";
+import CreateAccount from "./createuser";
+import ResetPasswordRequest from "./passwordResetRequestPop";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(true);

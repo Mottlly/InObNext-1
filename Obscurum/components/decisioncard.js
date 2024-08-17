@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/decisioncard.module.scss";
-import CardImage from "../components/cardimage";
-import TypingTextBox from "../components/typingtextbox";
+import CardImage from "./cardImage";
+import TypingTextBox from "./typingTextBox";
 
 export default function DecisionCard({
   currentEvent,
