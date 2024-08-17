@@ -1,0 +1,83 @@
+.page-container {
+    position: relative;
+    background-image: url("../public/galBack.jpg"); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire screen */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Hide any overflow from the break */
+  }
+  
+  .page-container {
+    position: relative;
+    background-image: url("../public/galBack.jpg"); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire screen */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Hide any overflow from the break */
+  }
+  
+  /* Media query for screens wider than 2400px */
+  @media (min-width: 2400px) {
+    .page-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 33.33%; /* Start at the beginning of the middle third */
+      width: 33.33%; /* Width is one-third of the viewport */
+      height: 100%;
+      background: #242424; /* Color of the break, adjust as needed */
+      z-index: 1; /* Place this element above the background image */
+    }
+  }
+
+  @media (min-width: 1600px) and (max-width: 2399px) {
+    .page-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 25%; /* Start at the beginning of the middle 50% */
+      width: 50%; /* Width is 50% of the viewport */
+      height: 100%;
+      background:#242424; /* Color of the break, adjust as needed */
+      z-index: 1; /* Place this element above the background image */
+    }
+  }
+
+  @media (min-width: 1200px) and (max-width: 1599px) {
+    .page-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 16.66%; /* Start at the beginning of the middle 66.6% */
+      width: 66.6%; /* Width is 66.6% of the viewport */
+      height: 100%;
+      background: #242424; /* Color of the break, adjust as needed */
+      z-index: 1; /* Place this element above the background image */
+    }
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the break */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the break */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+  }
