@@ -20,78 +20,75 @@ export default function CardImage({
   const renderBlockRef = useRef(true); // Use useRef to track the block state
 
   useEffect(() => {
+    console.log("Effect triggered: initializing swiper");
     const swiperInstance = swiperElRef.current.swiper;
     setSwiper(swiperInstance);
 
     const onSlideChange = () => {
+      console.log("Slide change detected");
+
       if (renderBlockRef.current) {
-        console.log("blocked");
+        console.log("Blocked initial render");
         renderBlockRef.current = false; // Use ref to set the block state
-        console.log(renderBlockRef.current);
         return; // Prevent action on initial render
       }
 
       const previousIndex = swiperInstance.previousIndex; // Index of the previous slide
       const currentIndex = swiperInstance.activeIndex; // Index of the currently active slide
-      setActiveIndex(currentIndex); // Update active index
+      console.log("Previous index:", previousIndex);
+      console.log("Current index:", currentIndex);
 
-      if (eventData && currentEventData) {
-        let nextEvent;
+      // Determine the new event based on swipe direction
+      let nextEvent = null;
+      if (currentIndex > previousIndex) {
+        nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
+      } else if (currentIndex < previousIndex) {
+        nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
+      }
 
-        // Determine the new event based on swipe direction
-        if (currentIndex > previousIndex) {
-          nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
-        } else if (currentIndex < previousIndex) {
-          nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
-        }
+      // Directly set the current event without validation
+      console.log("Next event (before validation):", nextEvent);
+      setCurrentEvent(nextEvent);
 
-        // Ensure nextEvent is valid and within bounds
-        if (
-          nextEvent !== undefined &&
-          nextEvent >= 0 &&
-          nextEvent < eventData.length
-        ) {
-          // Update current event only if it's different
-          //it is THIS. IF THIS IS REMOVED DOUBLE RENDER DOESNT HAPPEN
-          //YEAH ITS THIS FORE SURE
-          if (nextEvent !== currentEvent) {
-            console.log("current event:", currentEvent);
-            console.log("next event:", nextEvent);
-            setCurrentEvent(nextEvent);
+      // Update health based on the current event data
+      let nextEventData;
+      if (currentIndex > previousIndex) {
+        nextEventData = currentEventData[2]; // Get the event number for the right swipe
+      } else if (currentIndex < previousIndex) {
+        nextEventData = currentEventData[0]; // Get the event number for the left swipe
+      }
+      console.log("Next event data:", nextEventData);
 
-            // Update health based on the current event data
-            const nextEventData = eventData[nextEvent];
-            if (nextEventData) {
-              setHealthOne(
-                (prevHealthOne) => prevHealthOne + nextEventData.healthbars.hb1
-              );
-              setHealthTwo(
-                (prevHealthTwo) => prevHealthTwo + nextEventData.healthbars.hb2
-              );
-              setHealthThree(
-                (prevHealthThree) =>
-                  prevHealthThree + nextEventData.healthbars.hb3
-              );
-              setHealthFour(
-                (prevHealthFour) =>
-                  prevHealthFour + nextEventData.healthbars.hb4
-              );
-            }
-          }
-        }
+      if (nextEventData) {
+        console.log("Updating health for event:", nextEventData.event_number);
+        setHealthOne(
+          (prevHealthOne) => prevHealthOne + nextEventData.healthbars.hb1
+        );
+        setHealthTwo(
+          (prevHealthTwo) => prevHealthTwo + nextEventData.healthbars.hb2
+        );
+        setHealthThree(
+          (prevHealthThree) => prevHealthThree + nextEventData.healthbars.hb3
+        );
+        setHealthFour(
+          (prevHealthFour) => prevHealthFour + nextEventData.healthbars.hb4
+        );
       }
     };
+
     renderBlockRef.current = true; // Use ref to set the block state
     swiperInstance.on("slideChange", onSlideChange);
 
     // Cleanup the event listener on component unmount
     return () => {
+      console.log("Cleaning up slideChange event listener");
       swiperInstance.off("slideChange", onSlideChange);
     };
   }, [currentEvent, eventData]); // currentEvent and eventData to re-run when they change
 
   // Effect to handle when eventData updates
   useEffect(() => {
+    console.log("Effect triggered: updating swiper");
     if (swiper) {
       swiper.update(); // Update Swiper when eventData changes
       swiper.slideTo(activeIndex, 0); // Keep the current slide active
@@ -100,20 +97,22 @@ export default function CardImage({
 
   // Effect to set the initial slide to the middle one
   useEffect(() => {
+    console.log("Effect triggered: setting initial slide");
     if (swiper && eventData.length > 0) {
       const middleIndex = Math.floor(eventData.length / 2);
+      console.log("Middle index:", middleIndex);
       swiper.slideTo(middleIndex, 0); // Move to the middle slide
       setActiveIndex(middleIndex); // Set active index to the middle slide
     }
   }, [swiper, eventData]);
-
+  console.log("event data:", eventData);
   return (
     <div id="swipercontainer">
       <swiper-container ref={swiperElRef} slides-per-view="1">
         {eventData &&
           eventData.map((event) => {
             return (
-              <swiper-slide key={event.event_number}>
+              <swiper-slide>
                 <Image
                   src={event.image}
                   alt={`Image for event ${event.event_number}`}
