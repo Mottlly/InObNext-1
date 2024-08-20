@@ -1,14 +1,33 @@
 import React, { useState } from "react";
 import styles from "../styles/titlescreen.module.scss";
-import { Button, Stack } from "@mui/material";
+import {
+  Button,
+  Stack,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
 import MenuscreenOverlay from "../components/menuSettings";
 import FormDialog from "../components/loginPop";
 
 function OpeningCrawl() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const openOverlay = () => setIsOverlayOpen(true);
   const closeOverlay = () => setIsOverlayOpen(false);
+
+  const handleContinueClick = () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setIsDialogOpen(true); // Show the pop-up if no token is found
+    } else {
+      // Logic to continue to the next part of your application
+      console.log("Token is valid, continue to next part.");
+    }
+  };
 
   return (
     <>
@@ -28,7 +47,11 @@ function OpeningCrawl() {
           </h3>
           <Stack spacing={2} mt={4}>
             <FormDialog />
-            <Button variant="outlined" className={styles["MuiButton-root"]}>
+            <Button
+              variant="outlined"
+              className={styles["MuiButton-root"]}
+              onClick={handleContinueClick}
+            >
               Continue
             </Button>
             <Button
@@ -55,6 +78,23 @@ function OpeningCrawl() {
           </Stack>
         </div>
       </div>
+
+      <Dialog
+        open={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Login Required"}</DialogTitle>
+        <DialogContent>
+          <p>You need to log in to continue where you left off.</p>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setIsDialogOpen(false)} color="primary">
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
