@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import styles from "../styles/decisioncard.module.scss";
+import styles from "../styles/decisionCard.module.scss";
 import CardImage from "./cardImage.js";
 import TypingTextBox from "./typingTextBox";
 
