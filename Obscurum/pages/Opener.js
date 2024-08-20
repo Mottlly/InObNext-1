@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "../styles/titlescreen.module.scss";
 import {
   Button,
   Stack,
@@ -8,6 +7,7 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
+import styles from "../styles/titleScreen.module.scss";
 import MenuscreenOverlay from "../components/menuSettings";
 import FormDialog from "../components/loginPop";
 

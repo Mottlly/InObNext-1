@@ -1,8 +1,8 @@
 import React from "react";
-import SpeedDial from "./speeddial";
-import FormDialog from "./loginpop";
-import CreateAccount from "./createuser";
-import styles from "../styles/topbar.module.scss";
+import SpeedDial from "./speedDial";
+import FormDialog from "./loginPop";
+import CreateAccount from "./createUser";
+import styles from "../styles/topBar.module.scss";
 
 export default function TopBar() {
   return (
