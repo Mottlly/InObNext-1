@@ -25,7 +25,8 @@ function OpeningCrawl() {
       setIsDialogOpen(true); // Show the pop-up if no token is found
     } else {
       // Logic to continue to the next part of your application
-      console.log("Token is valid, continue to next part.");
+      console.log("Token is valid, continue to the game.");
+      window.location.href = "/mainGame";
     }
   };
 
