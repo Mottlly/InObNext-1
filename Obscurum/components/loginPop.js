@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "../styles/popup.module.scss";
+import styles from "../styles/popUp.module.scss";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -7,7 +7,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import CreateAccount from "./createuser";
+import CreateAccount from "./createUser";
 import ResetPasswordRequest from "./passwordResetRequestPop";
 
 export default function FormDialog() {
