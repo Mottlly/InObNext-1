@@ -61,7 +61,11 @@ export default function FormDialog() {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        variant="outlined"
+        className={styles["MuiButton-root"]}
+        onClick={handleClickOpen}
+      >
         Login
       </Button>
       <Dialog
