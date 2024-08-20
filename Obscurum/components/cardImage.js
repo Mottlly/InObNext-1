@@ -41,7 +41,7 @@ export default function CardImage({
       // Determine the new event based on swipe direction
       let nextEvent = null;
       if (currentIndex > previousIndex) {
-        nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
+        nextEvent = currentEventData.nextswipe.right; // Get the event number for the right skeeet
       } else if (currentIndex < previousIndex) {
         nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
       }
