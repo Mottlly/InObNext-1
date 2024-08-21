@@ -39,6 +39,7 @@ export default function CardImage({
       console.log("Current index:", currentIndex);
 
       // Determine the new event based on swipe direction
+      console.log("Current Event Data:", currentEventData);
       let nextEvent = null;
       if (currentIndex > previousIndex) {
         nextEvent = currentEventData.nextswipe.right; // Get the event number for the right skeeet
@@ -53,9 +54,9 @@ export default function CardImage({
       // Update health based on the current event data
       let nextEventData;
       if (currentIndex > previousIndex) {
-        nextEventData = currentEventData[2]; // Get the event number for the right swipe
+        nextEventData = eventData[2]; // Get the event number for the right swipe
       } else if (currentIndex < previousIndex) {
-        nextEventData = currentEventData[0]; // Get the event number for the left swipe
+        nextEventData = eventData[0]; // Get the event number for the left swipe
       }
       console.log("Next event data:", nextEventData);
 
