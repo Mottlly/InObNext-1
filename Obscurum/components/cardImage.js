@@ -17,7 +17,10 @@ export default function CardImage({
   const swiperElRef = useRef(null);
   const [swiper, setSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0); // Track the current slide index
-  const renderBlockRef = useRef(true); // Use useRef to track the block state
+  const [progress, setProgress] = useState(0); // Track swiper progress
+  const [dropdownVisible, setDropdownVisible] = useState(false); // State to control dropdown visibility
+  const [dropdownOpacity, setDropdownOpacity] = useState(0);
+  const [dropdownContent, setDropdownContent] = useState("dropdown content"); // State to control dropdown opacity
 
   useEffect(() => {
     console.log("Effect triggered: initializing swiper");
@@ -26,12 +29,6 @@ export default function CardImage({
 
     const onSlideChange = () => {
       console.log("Slide change detected");
-
-      if (renderBlockRef.current) {
-        console.log("Blocked initial render");
-        renderBlockRef.current = false; // Use ref to set the block state
-        return; // Prevent action on initial render
-      }
 
       const previousIndex = swiperInstance.previousIndex; // Index of the previous slide
       const currentIndex = swiperInstance.activeIndex; // Index of the currently active slide
@@ -42,7 +39,7 @@ export default function CardImage({
       console.log("Current Event Data:", currentEventData);
       let nextEvent = null;
       if (currentIndex > previousIndex) {
-        nextEvent = currentEventData.nextswipe.right; // Get the event number for the right skeeet
+        nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
       } else if (currentIndex < previousIndex) {
         nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
       }
@@ -77,17 +74,41 @@ export default function CardImage({
       }
     };
 
-    renderBlockRef.current = true; // Use ref to set the block state
+    const onProgress = () => {
+      const newProgress = swiperInstance.progress;
+      setProgress(newProgress); // Update progress state
+      if (newProgress > 0.34) {
+        setDropdownContent("steven");
+      } else {
+        setDropdownContent("allen");
+      }
+
+      // Set opacity based on progress
+      if (newProgress < 0.25 || newProgress > 0.4) {
+        setDropdownOpacity(1);
+      } else {
+        setDropdownOpacity(0);
+      }
+
+      // Toggle dropdown visibility based on progress
+      if (newProgress > 0.35 || newProgress < 0.3) {
+        setDropdownVisible(true);
+      } else {
+        setDropdownVisible(false);
+      }
+    };
+
     swiperInstance.on("slideChange", onSlideChange);
+    swiperInstance.on("progress", onProgress);
 
     // Cleanup the event listener on component unmount
     return () => {
-      console.log("Cleaning up slideChange event listener");
+      console.log("Cleaning up slideChange and progress event listeners");
       swiperInstance.off("slideChange", onSlideChange);
+      swiperInstance.off("progress", onProgress);
     };
   }, [currentEvent, eventData]); // currentEvent and eventData to re-run when they change
 
-  // Effect to handle when eventData updates
   useEffect(() => {
     console.log("Effect triggered: updating swiper");
     if (swiper) {
@@ -96,7 +117,6 @@ export default function CardImage({
     }
   }, [eventData, swiper]);
 
-  // Effect to set the initial slide to the middle one
   useEffect(() => {
     console.log("Effect triggered: setting initial slide");
     if (swiper && eventData.length > 0) {
@@ -107,24 +127,45 @@ export default function CardImage({
     }
   }, [swiper, eventData]);
   console.log("event data:", eventData);
+
   return (
-    <div id="swipercontainer">
+    <div id="swipercontainer" style={{ position: "relative", height: "100vh" }}>
       <swiper-container ref={swiperElRef} slides-per-view="1">
         {eventData &&
-          eventData.map((event) => {
-            return (
-              <swiper-slide>
-                <Image
-                  src={event.image}
-                  alt={`Image for event ${event.event_number}`}
-                  layout="responsive"
-                  width={100}
-                  height={100}
-                />
-              </swiper-slide>
-            );
-          })}
+          eventData.map((event) => (
+            <swiper-slide key={event.event_number}>
+              <Image
+                src={event.image}
+                alt={`Image for event ${event.event_number}`}
+                layout="responsive"
+                width={100}
+                height={100}
+              />
+            </swiper-slide>
+          ))}
       </swiper-container>
+      {/* Render the dropdown message based on visibility state */}
+      {dropdownVisible && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0px", // Drop into view from the top
+            left: "50%",
+            width: "200px",
+            height: "50px",
+            backgroundColor: "grey",
+            color: "white",
+            textAlign: "center",
+            lineHeight: "50px",
+            transform: "translateX(-50%)",
+            transition: "top 0.3s ease-in-out, opacity 0.3s ease-in-out", // Smooth transition for dropdown effect
+            zIndex: 10,
+            opacity: dropdownOpacity, // Apply calculated opacity
+          }}
+        >
+          {dropdownContent}
+        </div>
+      )}
     </div>
   );
 }
