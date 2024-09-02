@@ -84,14 +84,14 @@ export default function CardImage({
       }
 
       // Set opacity based on progress
-      if (newProgress < 0.25 || newProgress > 0.4) {
+      if (newProgress < 0.3 || newProgress > 0.37) {
         setDropdownOpacity(1);
       } else {
         setDropdownOpacity(0);
       }
 
       // Toggle dropdown visibility based on progress
-      if (newProgress > 0.35 || newProgress < 0.3) {
+      if (newProgress > 0.34 || newProgress < 0.32) {
         setDropdownVisible(true);
       } else {
         setDropdownVisible(false);
@@ -149,16 +149,19 @@ export default function CardImage({
         <div
           style={{
             position: "absolute",
-            top: "0px", // Drop into view from the top
+            top: "2%", // Drop into view from the top
             left: "50%",
             width: "200px",
             height: "50px",
-            backgroundColor: "grey",
-            color: "white",
+            backgroundColor: "#333", // Slightly darker grey for better contrast
+            color: "#fff", // White text color
             textAlign: "center",
             lineHeight: "50px",
             transform: "translateX(-50%)",
-            transition: "top 0.3s ease-in-out, opacity 0.3s ease-in-out", // Smooth transition for dropdown effect
+            borderRadius: "8px", // Rounded corners
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Subtle shadow effect
+            transition:
+              "top 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out", // Added transition for smooth transform
             zIndex: 10,
             opacity: dropdownOpacity, // Apply calculated opacity
           }}
