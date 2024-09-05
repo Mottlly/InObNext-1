@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/healthBar.module.scss";
 
-const HealthBar = ({ health }) => {
+const HealthBar = ({ health, setGameOver }) => {
   const [prevFilledSections, setPrevFilledSections] = useState(health);
   const [flashClass, setFlashClass] = useState("");
 
@@ -20,6 +20,10 @@ const HealthBar = ({ health }) => {
     }
 
     setPrevFilledSections(health);
+
+    if (health <= 0) {
+      setGameOver(true); // Notify parent component about game over
+    }
 
     // Remove flash class after animation ends
     const timer = setTimeout(() => setFlashClass(""), 500); // Adjust duration as needed
