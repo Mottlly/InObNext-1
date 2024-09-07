@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { register } from "swiper/element/bundle";
+import styles from "../styles/choiceTextBox.module.scss";
 import Image from "next/legacy/image";
 
 register();
@@ -28,6 +29,7 @@ export default function CardImage({
 
     const swiperInstance = swiperElRef.current.swiper;
     setSwiper(swiperInstance);
+    console.log(eventData);
 
     const onSlideChange = () => {
       console.log("Slide change detected");
@@ -178,25 +180,8 @@ export default function CardImage({
       {/* Render the dropdown message based on visibility state */}
       {dropdownVisible && (
         <div
-          style={{
-            position: "absolute",
-            top: "2%", // Drop into view from the top
-            left: "50%",
-            height: "50px",
-            paddingLeft: "10px",
-            paddingRight: "10px",
-            backgroundColor: "#333", // Slightly darker grey for better contrast
-            color: "#fff", // White text color
-            textAlign: "center",
-            lineHeight: "50px",
-            transform: "translateX(-50%)",
-            borderRadius: "8px", // Rounded corners
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Subtle shadow effect
-            transition:
-              "top 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out", // Added transition for smooth transform
-            zIndex: 10,
-            opacity: dropdownOpacity, // Apply calculated opacity
-          }}
+          className={styles.choiceTextBox}
+          style={{ opacity: dropdownOpacity }} // Apply dynamic opacity here
         >
           {dropdownContent}
         </div>
