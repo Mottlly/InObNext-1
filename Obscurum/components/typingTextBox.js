@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/typingText.module.scss";
 
-const TypingText = ({ text, speed = 65 }) => {
+const TypingText = ({ text, speed = 50 }) => {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {

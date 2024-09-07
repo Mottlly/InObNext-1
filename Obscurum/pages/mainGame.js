@@ -5,6 +5,15 @@ import TrackContainer from "../components/trackContainer";
 import DecisionCard from "../components/decisionCard";
 import SpeedDial from "../components/speedDial";
 
+const Modal = ({ message, onClose }) => (
+  <div className={styles.modal}>
+    <div className={styles.modalContent}>
+      <h2>{message}</h2>
+      <button onClick={onClose}>Close</button>
+    </div>
+  </div>
+);
+
 export default function Main() {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [healthOne, setHealthOne] = useState(5);
@@ -12,6 +21,7 @@ export default function Main() {
   const [healthThree, setHealthThree] = useState(5);
   const [healthFour, setHealthFour] = useState(5);
   const [eventData, setEventData] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -43,6 +53,10 @@ export default function Main() {
     fetchEventData();
   }, [currentEvent]);
 
+  const handleCloseModal = () => {
+    setGameOver(false);
+  };
+
   return (
     <div className={styles["page-container"]}>
       <Head>
@@ -65,8 +79,13 @@ export default function Main() {
           healthTwo={healthTwo}
           healthThree={healthThree}
           healthFour={healthFour}
+          setGameOver={setGameOver}
         />
       </div>
+
+      {gameOver && (
+        <Modal message="Game Over! Try again." onClose={handleCloseModal} />
+      )}
 
       <style jsx global>{`
         html,
@@ -110,57 +129,38 @@ export default function Main() {
           width: 100%; /* Full width of the parent */
         }
 
-        #container {
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
           display: flex;
-          flex-direction: column;
           align-items: center;
-          margin: 30px;
+          justify-content: center;
+          z-index: 1000;
         }
 
-        .imagebutt {
-          background-color: #242424;
+        .modalContent {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          text-align: center;
+        }
+
+        .modalContent button {
+          margin-top: 10px;
+          padding: 10px 20px;
           border: none;
-        }
-
-        .imagebutt:hover {
+          background: #0070f3;
+          color: white;
+          border-radius: 5px;
           cursor: pointer;
         }
 
-        .mainbuttons {
-          display: flex;
-          justify-content: flex-start;
-          margin: 20px;
-          width: 30vw;
-          height: 5vh;
-        }
-
-        .textbox {
-          display: flex;
-          justify-content: space-around;
-          margin: 20px;
-          width: 90%;
-          height: 5vh;
-        }
-
-        .healthBar {
-          display: flex;
-          align-items: center;
-        }
-
-        .healthSection {
-          width: 20px;
-          height: 20px;
-          margin-right: 5px;
-          border: 1px solid #000;
-        }
-
-        .active {
-          background-color: white;
-        }
-
-        #intro {
-          width: 50%;
-          text-align: center;
+        .modalContent button:hover {
+          background: #005bb5;
         }
       `}</style>
     </div>

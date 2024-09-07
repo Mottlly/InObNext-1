@@ -1,0 +1,24 @@
+.choiceTextBox {
+position: absolute;
+bottom: 2%; // Default positioning from the bottom
+left: 50%;
+width: auto; // Adjust width based on content or set a fixed width if needed
+padding: 5px;
+background-color: #333; // Slightly darker grey for better contrast
+color: #fff; // White text color
+text-align: center;
+display: flex;
+align-items: center; // Centers the text vertically
+justify-content: center; // Centers the text horizontally
+transform: translateX(-50%);
+border-radius: 8px; // Rounded corners
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Subtle shadow effect
+transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out; // Smooth transitions
+z-index: 10;
+opacity: var(--dropdown-opacity); // Use a CSS variable or replace this with a fixed value
+
+// Media query for screens wider than 620px
+@media (min-width: 620px) {
+  bottom: 30%;
+}
+}

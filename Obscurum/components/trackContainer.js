@@ -12,6 +12,7 @@ export default function TrackContainer({
   healthTwo,
   healthThree,
   healthFour,
+  setGameOver,
 }) {
   return (
     <>
@@ -20,19 +21,19 @@ export default function TrackContainer({
       </Head>
       <div id="trackcontaineractual" className={styles.healthcontainer}>
         <div className={styles.healthItem}>
-          <HealthBar health={healthOne} />
+          <HealthBar health={healthOne} setGameOver={setGameOver} />
           <BuildIcon />
         </div>
         <div className={styles.healthItem}>
-          <HealthBar health={healthTwo} />
+          <HealthBar health={healthTwo} setGameOver={setGameOver} />
           <HealthAndSafetyIcon />
         </div>
         <div className={styles.healthItem}>
-          <HealthBar health={healthThree} />
+          <HealthBar health={healthThree} setGameOver={setGameOver} />
           <SentimentSatisfiedAltIcon />
         </div>
         <div className={styles.healthItem}>
-          <HealthBar health={healthFour} />
+          <HealthBar health={healthFour} setGameOver={setGameOver} />
           <SpaIcon />
         </div>
       </div>

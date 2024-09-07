@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { register } from "swiper/element/bundle";
+import styles from "../styles/choiceTextBox.module.scss";
 import Image from "next/legacy/image";
 
 register();
@@ -21,80 +22,105 @@ export default function CardImage({
   const [dropdownVisible, setDropdownVisible] = useState(false); // State to control dropdown visibility
   const [dropdownOpacity, setDropdownOpacity] = useState(0);
   const [dropdownContent, setDropdownContent] = useState("dropdown content"); // State to control dropdown opacity
+  const [renderSwitch, setRenderSwitch] = useState(false);
 
   useEffect(() => {
     console.log("Effect triggered: initializing swiper");
+
     const swiperInstance = swiperElRef.current.swiper;
     setSwiper(swiperInstance);
+    console.log(eventData);
 
     const onSlideChange = () => {
       console.log("Slide change detected");
+      console.log("Should I render?", renderSwitch);
+      if (renderSwitch) {
+        const previousIndex = swiperInstance.previousIndex; // Index of the previous slide
+        const currentIndex = swiperInstance.activeIndex; // Index of the currently active slide
+        console.log("Previous index:", previousIndex);
+        console.log("Current index:", currentIndex);
 
-      const previousIndex = swiperInstance.previousIndex; // Index of the previous slide
-      const currentIndex = swiperInstance.activeIndex; // Index of the currently active slide
-      console.log("Previous index:", previousIndex);
-      console.log("Current index:", currentIndex);
+        // Determine the new event based on swipe direction
+        console.log("Current Event Data:", currentEventData);
+        let nextEvent = null;
+        if (currentIndex > previousIndex) {
+          nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
+          console.log("Next event for right swipe:", nextEvent);
+        } else if (currentIndex < previousIndex) {
+          nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
+          console.log("Next event for left swipe:", nextEvent);
+        }
 
-      // Determine the new event based on swipe direction
-      console.log("Current Event Data:", currentEventData);
-      let nextEvent = null;
-      if (currentIndex > previousIndex) {
-        nextEvent = currentEventData.nextswipe.right; // Get the event number for the right swipe
-      } else if (currentIndex < previousIndex) {
-        nextEvent = currentEventData.nextswipe.left; // Get the event number for the left swipe
-      }
+        // Directly set the current event without validation
+        setCurrentEvent(nextEvent);
 
-      // Directly set the current event without validation
-      console.log("Next event (before validation):", nextEvent);
-      setCurrentEvent(nextEvent);
+        // Update health based on the current event data
+        let nextEventData;
+        if (currentIndex > previousIndex) {
+          nextEventData = eventData[2]; // Get the event number for the right swipe
+        } else if (currentIndex < previousIndex) {
+          nextEventData = eventData[0]; // Get the event number for the left swipe
+        }
+        console.log("Next event data:", nextEventData);
 
-      // Update health based on the current event data
-      let nextEventData;
-      if (currentIndex > previousIndex) {
-        nextEventData = eventData[2]; // Get the event number for the right swipe
-      } else if (currentIndex < previousIndex) {
-        nextEventData = eventData[0]; // Get the event number for the left swipe
-      }
-      console.log("Next event data:", nextEventData);
-
-      if (nextEventData) {
-        console.log("Updating health for event:", nextEventData.event_number);
-        setHealthOne(
-          (prevHealthOne) => prevHealthOne + nextEventData.healthbars.hb1
-        );
-        setHealthTwo(
-          (prevHealthTwo) => prevHealthTwo + nextEventData.healthbars.hb2
-        );
-        setHealthThree(
-          (prevHealthThree) => prevHealthThree + nextEventData.healthbars.hb3
-        );
-        setHealthFour(
-          (prevHealthFour) => prevHealthFour + nextEventData.healthbars.hb4
-        );
+        if (nextEventData) {
+          console.log("Updating health for event:", nextEventData.event_number);
+          setHealthOne((prevHealthOne) => {
+            const newHealth = prevHealthOne + nextEventData.healthbars.hb1;
+            console.log("Updated health one:", newHealth);
+            return newHealth;
+          });
+          setHealthTwo((prevHealthTwo) => {
+            const newHealth = prevHealthTwo + nextEventData.healthbars.hb2;
+            console.log("Updated health two:", newHealth);
+            return newHealth;
+          });
+          setHealthThree((prevHealthThree) => {
+            const newHealth = prevHealthThree + nextEventData.healthbars.hb3;
+            console.log("Updated health three:", newHealth);
+            return newHealth;
+          });
+          setHealthFour((prevHealthFour) => {
+            const newHealth = prevHealthFour + nextEventData.healthbars.hb4;
+            console.log("Updated health four:", newHealth);
+            return newHealth;
+          });
+        }
+        setRenderSwitch(false);
+      } else {
+        setRenderSwitch(true);
+        console.log("renderSwitch set to:", renderSwitch);
       }
     };
 
     const onProgress = () => {
       const newProgress = swiperInstance.progress;
+      console.log(renderSwitch);
       setProgress(newProgress); // Update progress state
-      if (newProgress > 0.34) {
-        setDropdownContent("steven");
+      console.log("progress:", newProgress);
+
+      if (newProgress > 0.5) {
+        setDropdownContent(currentEventData.choicetext.rightChoice);
       } else {
-        setDropdownContent("allen");
+        setDropdownContent(currentEventData.choicetext.leftChoice);
       }
 
       // Set opacity based on progress
-      if (newProgress < 0.3 || newProgress > 0.37) {
+      if (newProgress < 0.47 || newProgress > 0.53) {
         setDropdownOpacity(1);
+        console.log("Dropdown opacity set to 1");
       } else {
         setDropdownOpacity(0);
+        console.log("Dropdown opacity set to 0");
       }
 
       // Toggle dropdown visibility based on progress
-      if (newProgress > 0.34 || newProgress < 0.32) {
+      if (newProgress > 0.51 || newProgress < 0.49) {
         setDropdownVisible(true);
+        console.log("Dropdown visibility set to true");
       } else {
         setDropdownVisible(false);
+        console.log("Dropdown visibility set to false");
       }
     };
 
@@ -107,13 +133,15 @@ export default function CardImage({
       swiperInstance.off("slideChange", onSlideChange);
       swiperInstance.off("progress", onProgress);
     };
-  }, [currentEvent, eventData]); // currentEvent and eventData to re-run when they change
+  }, [currentEvent, eventData, renderSwitch]); // currentEvent and eventData to re-run when they change
 
   useEffect(() => {
     console.log("Effect triggered: updating swiper");
     if (swiper) {
       swiper.update(); // Update Swiper when eventData changes
+      console.log("Swiper updated");
       swiper.slideTo(activeIndex, 0); // Keep the current slide active
+      console.log("Swiper slideTo activeIndex:", activeIndex);
     }
   }, [eventData, swiper]);
 
@@ -123,10 +151,15 @@ export default function CardImage({
       const middleIndex = Math.floor(eventData.length / 2);
       console.log("Middle index:", middleIndex);
       swiper.slideTo(middleIndex, 0); // Move to the middle slide
+      console.log("Swiper slideTo middleIndex:", middleIndex);
       setActiveIndex(middleIndex); // Set active index to the middle slide
+      console.log("Active index set to:", middleIndex);
     }
-  }, [swiper, eventData]);
-  console.log("event data:", eventData);
+  }, [swiper]);
+
+  useEffect(() => {
+    console.log("renderSwitch changed:", renderSwitch);
+  }, [renderSwitch]);
 
   return (
     <div id="swipercontainer" style={{ position: "relative", height: "100vh" }}>
@@ -147,24 +180,8 @@ export default function CardImage({
       {/* Render the dropdown message based on visibility state */}
       {dropdownVisible && (
         <div
-          style={{
-            position: "absolute",
-            top: "2%", // Drop into view from the top
-            left: "50%",
-            width: "200px",
-            height: "50px",
-            backgroundColor: "#333", // Slightly darker grey for better contrast
-            color: "#fff", // White text color
-            textAlign: "center",
-            lineHeight: "50px",
-            transform: "translateX(-50%)",
-            borderRadius: "8px", // Rounded corners
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Subtle shadow effect
-            transition:
-              "top 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out", // Added transition for smooth transform
-            zIndex: 10,
-            opacity: dropdownOpacity, // Apply calculated opacity
-          }}
+          className={styles.choiceTextBox}
+          style={{ opacity: dropdownOpacity }} // Apply dynamic opacity here
         >
           {dropdownContent}
         </div>
