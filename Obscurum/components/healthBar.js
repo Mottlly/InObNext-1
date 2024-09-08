@@ -23,6 +23,7 @@ const HealthBar = ({ health, setGameOver }) => {
 
     if (health <= 0) {
       setGameOver(true); // Notify parent component about game over
+      console.log("game over!");
     }
 
     // Remove flash class after animation ends
