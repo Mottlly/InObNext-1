@@ -29,9 +29,9 @@ Obscurum is a resource management game where players navigate through a strange 
 - **Next.js:** Framework for building the React-based front-end and server-side rendering.
 - **React:** JavaScript library for building user interfaces and handling game interactions.
 - **MongoDB:** NoSQL database for storing game data, user profiles, and progress.
-- **Vercel:**
-- **Material UI:**
-- **bcrypt:**
+- **Vercel:** Enables deployment and scaling of web applications,  with features like serverless functions and instant previews.
+- **Material UI:** A React component library that provides pre-designed, customizable UI elements.
+- **Bcrypt:** A hashing library designed to securely encrypt passwords and protect sensitive data.
 
 ## Usage
 
@@ -39,7 +39,7 @@ You can find the deployed game on Vercel here:   --------> https://obscurum.verc
 
 ## Roadmap
 
-This project is far from complete, and the version currently deployed is most akin to a tech-demo. I plan to make an number of additions over the coming months.
+This project is far from complete, and the version currently deployed is most akin to a tech-demo. I plan to make a number of additions over the coming months including but not limited to:
 
 ### October 2024
 - **Save Game Progress:** Your progress is automatically saved, allowing you to continue your adventure anytime.
@@ -50,7 +50,6 @@ This project is far from complete, and the version currently deployed is most ak
 ### November 2024
 - **Chapter 2:** This was only the beginning, lead your crew to the surface of an alien planet.
 - **Dynamic Visuals:** Characters and backgrounds will change depending on your choices, for better or for worse.
-- 
 
 ## Contact
 
