@@ -1,6 +1,6 @@
 import React from "react";
-import SpeedDial from "./speedDial";
-import FormDialog from "./loginPop";
+import SpeedDial from "./SpeedDial";
+import FormDialog from "./LoginPop";
 import CreateAccount from "./createUser";
 import styles from "../styles/topBar.module.scss";
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../styles/mainGame.module.scss";
-import TrackContainer from "../components/trackContainer";
+import TrackContainer from "../components/TrackContainer";
 import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/SpeedDial";
 
