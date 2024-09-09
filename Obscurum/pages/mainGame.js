@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../styles/mainGame.module.scss";
 import TrackContainer from "../components/trackContainer";
-import DecisionCard from "../components/DecisionCard";
+import DecisionCard from "../components/decisioncard";
 import SpeedDial from "../components/SpeedDial";
 
 export default function Main() {
