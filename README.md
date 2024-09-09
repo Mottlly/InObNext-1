@@ -41,8 +41,11 @@ You can find the deployed game on Vercel here:   --------> https://obscurum.verc
 
 This project is far from complete, and the version currently deployed is most akin to a tech-demo. I plan to make a number of additions over the coming months including but not limited to:
 
-### October 2024
+### September 2024
 - **Save Game Progress:** Your progress is automatically saved, allowing you to continue your adventure anytime.
+- **UI/UX Improvements:** improvements to the Desktop version to make swiping more intuitive.
+
+### October 2024
 - **Tutorial:** Improve the user experience by introducing the characters an mechanics in a more gradual manner.
 - **Name Your Ship:** Not happy with my ship name choice? No Sweat! Name it yourself and make the story your own.
 - **End of Chapter Story:** A summary at the end of each chapter of your journey that will give you a vibe of the impact your choices have had on your crew and your mission.
