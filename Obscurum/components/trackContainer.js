@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import HealthBar from "./healthBar";
+import HealthBar from "./HealthBar";
 import styles from "../styles/trackContainer.module.scss";
 import BuildIcon from "@mui/icons-material/Build";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
@@ -12,7 +12,6 @@ export default function TrackContainer({
   healthTwo,
   healthThree,
   healthFour,
-  setGameOver,
 }) {
   return (
     <>
@@ -21,19 +20,19 @@ export default function TrackContainer({
       </Head>
       <div id="trackcontaineractual" className={styles.healthcontainer}>
         <div className={styles.healthItem}>
-          <HealthBar health={healthOne} setGameOver={setGameOver} />
+          <HealthBar health={healthOne} />
           <BuildIcon />
         </div>
         <div className={styles.healthItem}>
-          <HealthBar health={healthTwo} setGameOver={setGameOver} />
+          <HealthBar health={healthTwo} />
           <HealthAndSafetyIcon />
         </div>
         <div className={styles.healthItem}>
-          <HealthBar health={healthThree} setGameOver={setGameOver} />
+          <HealthBar health={healthThree} />
           <SentimentSatisfiedAltIcon />
         </div>
         <div className={styles.healthItem}>
-          <HealthBar health={healthFour} setGameOver={setGameOver} />
+          <HealthBar health={healthFour} />
           <SpaIcon />
         </div>
       </div>
