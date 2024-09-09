@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import styles from "../styles/mainGame.module.scss";
 import TrackContainer from "../components/trackContainer";
-import DecisionCard from "../components/decisionCard";
-import SpeedDial from "../components/speedDial";
-
-const Modal = ({ message, onClose }) => (
-  <div className={styles.modal}>
-    <div className={styles.modalContent}>
-      <h2>{message}</h2>
-      <button onClick={onClose}>Close</button>
-    </div>
-  </div>
-);
+import DecisionCard from "../components/decisioncard";
+import SpeedDial from "../components/SpeedDial";
 
 export default function Main() {
   const [currentEvent, setCurrentEvent] = useState(0);
@@ -22,6 +14,7 @@ export default function Main() {
   const [healthFour, setHealthFour] = useState(5);
   const [eventData, setEventData] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -53,8 +46,15 @@ export default function Main() {
     fetchEventData();
   }, [currentEvent]);
 
+  useEffect(() => {
+    if (gameOver) {
+      console.log("Game Over! Displaying modal.");
+    }
+  }, [gameOver]);
+
   const handleCloseModal = () => {
     setGameOver(false);
+    router.push("/Menu");
   };
 
   return (
@@ -84,7 +84,12 @@ export default function Main() {
       </div>
 
       {gameOver && (
-        <Modal message="Game Over! Try again." onClose={handleCloseModal} />
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h2>Game Over! Try Again.</h2>
+            <button onClick={handleCloseModal}>Go to Main Menu</button>
+          </div>
+        </div>
       )}
 
       <style jsx global>{`
@@ -129,38 +134,14 @@ export default function Main() {
           width: 100%; /* Full width of the parent */
         }
 
-        .modal {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.5);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1000;
-        }
-
-        .modalContent {
-          background: white;
-          padding: 20px;
-          border-radius: 8px;
-          text-align: center;
-        }
-
-        .modalContent button {
-          margin-top: 10px;
-          padding: 10px 20px;
-          border: none;
+        button {
           background: #0070f3;
           color: white;
+          border: none;
+          padding: 10px 20px;
           border-radius: 5px;
           cursor: pointer;
-        }
-
-        .modalContent button:hover {
-          background: #005bb5;
+          font-size: 16px;
         }
       `}</style>
     </div>
