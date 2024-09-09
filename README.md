@@ -57,6 +57,6 @@ This project is far from complete, and the version currently deployed is most ak
 For any questions or feedback, you can reach us at:
 
 - **Email:** inobscurumgame@gmail.com
-- **GitHub Issues:** [Obscurum Issues](https://github.com/yourusername/obscurum/issues)
+- **GitHub Issues:** [Obscurum Issues](https://github.com/mottly/InObNext-1/issues)
 
 Thank you for playing Obscurum and contributing to its development!
