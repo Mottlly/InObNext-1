@@ -7,7 +7,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import CreateAccount from "./createUser";
+import CreateAccount from "./CreateUser";
 import ResetPasswordRequest from "./PasswordResetRequestPop";
 
 export default function FormDialog() {

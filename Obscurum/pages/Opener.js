@@ -8,8 +8,8 @@ import {
   DialogActions,
 } from "@mui/material";
 import styles from "../styles/titleScreen.module.scss";
-import MenuscreenOverlay from "../components/menuSettings";
-import FormDialog from "../components/loginPop";
+import MenuscreenOverlay from "../components/MenuSettings";
+import FormDialog from "../components/LoginPop";
 
 function OpeningCrawl() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
