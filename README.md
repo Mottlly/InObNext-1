@@ -1,6 +1,6 @@
 # Obscurum
 
-Welcome to **Obscurum**! This is an engaging sci-fi game built with modern technologies, offering a dynamic gaming experience with health bars, a Tinder-like swiping mechanism, and internal API usage. Dive into a futuristic world, manage your health, and save your game progress with ease.
+Welcome to **Obscurum**! This is a sci-fi choose-your-own-adventure game built with modern technologies, offering a dynamic gaming experience with resource management and a Tinder-like swiping mechanism. Dive into a futuristic world, manage your ships resources, and take humanity to new strange stars.
 
 ## Table of Contents
 
@@ -8,13 +8,12 @@ Welcome to **Obscurum**! This is an engaging sci-fi game built with modern techn
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [License](#license)
+- 
 - [Contact](#contact)
 
 ## Introduction
 
-Obscurum is a sci-fi game where players navigate through a futuristic world, engaging in battles and adventures while managing their health bars. The game features a Tinder-like swiping interface for decision-making, allowing players to interact with characters and make choices that affect their progress. The game's internal API helps manage game data, user progress, and more.
+Obscurum is a resource management game where players navigate through a strange galaxy, overcome challenges, and protect their ship and crew. The game features a Tinder-like swiping interface for decision-making, allowing players to interact with characters and make choices that affect their progress. The game's internal API, combined with a MongoDB database helps manage game data, user progress, and more.
 
 ## Features
 
@@ -36,13 +35,7 @@ Obscurum is a sci-fi game where players navigate through a futuristic world, eng
 
 After starting the development server, you can access the game through your browser at `http://localhost:3000`. Follow the on-screen instructions to create an account, start a new game, and begin your adventure in the world of Obscurum.
 
-## API Documentation
-
-For detailed information on how to interact with the game's internal API, refer to the [API Documentation](docs/api.md). This includes endpoints for managing user sessions, saving progress, and retrieving game data.
-
-## License
-
-Obscurum is licensed under the [MIT License](LICENSE). See the LICENSE file for more details.
+## Roadmap
 
 ## Contact
 
