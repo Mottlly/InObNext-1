@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import CreditsContainer from "../components/creditsContainer";
+import CreditsContainer from "../components/CreditsContainer";
 import FullscreenOverlay from "../components/TransOverlay";
 import SpeedDial from "../components/SpeedDial";
 /* add object that contains content for the props */
