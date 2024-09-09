@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import FullscreenOverlay from "./transOverlay";
+import FullscreenOverlay from "./TransOverlay";
 import { SpeedDial, SpeedDialIcon, SpeedDialAction } from "@mui/material";
 import PlayArrow from "@mui/icons-material/PlayArrow";
 import Copyright from "@mui/icons-material/Copyright";

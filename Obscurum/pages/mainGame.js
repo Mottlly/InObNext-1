@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../styles/mainGame.module.scss";
 import TrackContainer from "../components/trackContainer";
-import DecisionCard from "../components/decisionCard";
-import SpeedDial from "../components/speedDial";
+import DecisionCard from "../components/DecisionCard";
+import SpeedDial from "../components/SpeedDial";
 
 export default function Main() {
   const [currentEvent, setCurrentEvent] = useState(0);
