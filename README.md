@@ -1,64 +1,84 @@
-# Obscurum
+# 🌌 Obscurum
 
-Welcome to **Obscurum**! This is a sci-fi choose-your-own-adventure game built with modern technologies, offering a dynamic gaming experience with resource management and a Tinder-like swiping mechanism. Dive into a futuristic world, manage your ships resources, and take humanity to new strang stars.
+Welcome to **Obscurum** — a sci-fi, choose-your-own-adventure game where every swipe could decide the fate of your crew. Built with modern web technologies, Obscurum delivers a dynamic narrative experience with deep resource management and a unique, Tinder-like decision system. Lead humanity into the stars... or into the unknown.
 
-## Table of Contents
+---
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Usage](#usage)
-- [Roadmap](#Roadmap)
-- [Contact](#contact)
+## 📖 Table of Contents
 
-## Introduction
+- [🎮 Introduction](#-introduction)
+- [✨ Features](#-features)
+- [🧰 Technologies Used](#-technologies-used)
+- [🚀 Usage](#-usage)
+- [📅 Roadmap](#-roadmap)
+- [📬 Contact](#-contact)
 
-Obscurum is a resource management game where players navigate through a strange galaxy, overcome challenges, and protect their ship and crew. The game features a Tinder-like swiping interface for decision-making, allowing players to interact with characters and make choices that affect their progress. The game's internal API, combined with a MongoDB database helps manage game data, user progress, and more.
+---
 
-## Features
+## 🎮 Introduction
 
-- **Sci-Fi Setting:** Immerse yourself in a futuristic world with advanced technology and alien encounters.
-- **Resource Management:** Keep track of your Ships' Hull, Life Support Systems, Crew Morale and Health as you make strategic decisions to survive.
-- **Tinder-Like Swiping:** Make choices and interact with characters using an intuitive swipe interface.
-- **Internal API:** Manage game data, user sessions, and save progress through a robust internal API.
-- **User Authentication:** Secure login system to protect user accounts and game progress.
+**Obscurum** is a narrative-driven survival experience where players must guide a spaceship and crew through the unknown reaches of space. With an intuitive swipe interface, players are presented with tough decisions, moral dilemmas, and branching storylines — all while managing limited resources, systems integrity, and crew morale.
 
-## Technologies Used
+The game's backend is powered by an internal API and MongoDB, keeping track of story progression, user decisions, and dynamic in-game variables.
 
-- **Node.js:** Server-side runtime environment for building the game's backend.
-- **Next.js:** Framework for building the React-based front-end and server-side rendering.
-- **React:** JavaScript library for building user interfaces and handling game interactions.
-- **MongoDB:** NoSQL database for storing game data, user profiles, and progress.
-- **Vercel:** Enables deployment and scaling of web applications,  with features like serverless functions and instant previews.
-- **Material UI:** A React component library that provides pre-designed, customizable UI elements.
-- **Bcrypt:** A hashing library designed to securely encrypt passwords and protect sensitive data.
+---
 
-## Usage
+## ✨ Features
 
-You can find the deployed game on Vercel here:   --------> https://obscurum.vercel.app/ <---------
+- 🌌 **Sci-Fi Galaxy Exploration:** A rich, immersive narrative set in a distant future full of mystery, danger, and wonder.  
+- ⚙️ **Resource Management:** Monitor and manage key systems like Hull Integrity, Life Support, Crew Morale, and Health.  
+- 🤝 **Swipe-Based Decision System:** Engage with crew members and events through a clean, mobile-friendly interface.  
+- 🔐 **User Authentication:** Secure login for players to track and save progress.  
+- 🔄 **Internal API:** Efficient backend managing narrative flow, choices, and player state.  
 
-## Roadmap
+---
 
-This project is far from complete, and the version currently deployed is most akin to a tech-demo. I plan to make a number of additions over the coming months including but not limited to:
+## 🧰 Technologies Used
 
-### September 2024
-- **Save Game Progress:** Your progress is automatically saved, allowing you to continue your adventure anytime.
-- **UI/UX Improvements:** improvements to the Desktop version to make swiping more intuitive.
+- **Next.js** – React framework for building the frontend and handling SSR.  
+- **Node.js** – Backend logic and API integration.  
+- **React** – Core UI rendering and component logic.  
+- **MongoDB** – NoSQL database for player state, story data, and session info.  
+- **Vercel** – Cloud platform for seamless deployment and CI/CD.  
+- **Material UI** – Sleek, customizable UI components.  
+- **Bcrypt** – Secure password hashing for user authentication.
 
-### October 2024
-- **Tutorial:** Improve the user experience by introducing the characters an mechanics in a more gradual manner.
-- **Name Your Ship:** Not happy with my ship name choice? No Sweat! Name it yourself and make the story your own.
-- **End of Chapter Story:** A summary at the end of each chapter of your journey that will give you a vibe of the impact your choices have had on your crew and your mission.
+---
 
-### November 2024
-- **Chapter 2:** This was only the beginning, lead your crew to the surface of an alien planet.
-- **Dynamic Visuals:** Characters and backgrounds will change depending on your choices, for better or for worse.
+## 🚀 Usage
 
-## Contact
+You can play the current demo version of **Obscurum** here:  
+👉 [https://obscurum.vercel.app](https://obscurum.vercel.app)
 
-For any questions or feedback, you can reach us at:
+> Note: This version is a live tech demo and represents the core gameplay mechanics. Content and polish are in active development.
 
-- **Email:** inobscurumgame@gmail.com
-- **GitHub Issues:** [Obscurum Issues](https://github.com/Mottlly/InObNext-1/issues)
+---
 
-Thank you for playing Obscurum and contributing to its development!
+## 📅 Roadmap
+
+The game is actively evolving! Below are the planned updates and milestones:
+
+### ✅ April 2025
+- **Save Game Progress:** Seamless autosave functionality.  
+- **UI/UX Improvements:** Smoother desktop interactions and swipe mechanics.
+
+### 🔜 May 2025
+- **Interactive Tutorial:** Introduce characters, mechanics, and systems step-by-step.  
+- **Name Your Ship:** Personalize your journey by naming your vessel.  
+- **Chapter Summaries:** End-of-chapter briefings recapping your crew’s state and major choices.
+
+### 🔮 June 2025
+- **Chapter 2:** Continue the story on a newly discovered alien planet.  
+- **Dynamic Visuals:** Characters and environments evolve based on your decisions.
+
+---
+
+## 📬 Contact
+
+Have feedback, feature requests, or just want to say hi? Reach out:
+
+- ✉️ **Email:** inobscurumgame@gmail.com  
+- 🐛 **Report Issues:** [GitHub Issues](https://github.com/Mottlly/InObNext-1/issues)
+
+Thanks for playing **Obscurum** — and for helping shape the future of this galaxy-spanning adventure!
+
